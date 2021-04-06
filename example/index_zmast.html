@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" />
+    <link rel="stylesheet" href="static/css/site.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <!-- <link rel="stylesheet" href="/static/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="/static/css/jquery.loadingModal.min.css" />
+    <link rel="stylesheet" href="/static/css/jquery-ui.min.css" /> -->
+
+    <title>z.MAST object</title>
+
+</head>
+
+    <body class="hsc-body">
+        <div class="row object-header" id="results-buttons">
+            <div>
+                <a href="/" class="btn" id="back-to-search"><span id="left-arrow" class="left-arrow-icon" title="Back to search"></span>Back to search</a>
+            </div>
+            <div class="object-name" id="object-name">Object Name</div>
+        </div>
+        <div id="results-message"></div>
+        <div id="error-message" hidden></div>
+        <div id="top-panel">
+
+<div class="object-info" id="object-info-candels">
+    <div class="object-row image-row">
+        <div class="column left object-info-top">
+            <div class="object-row">
+                <span class="column left_third" id="hlsp-candels"> <span>HLSP</span> <strong class="value nowrap">CANDELS</strong> </span
+                ><span class="column middle_third" id="id-candels"> <span>ID Field</span> <strong class="value nowrap"></strong> </span>
+            </div>
+            <div class="object-row">
+                <span class="column left_third" id="ra-candels"> <span>RA</span> <strong class="value nowrap"></strong> </span
+                ><span class="column middle_third" id="z_spec_candels"> <span>z_spec</span> <strong class="value nowrap"></strong> </span>
+            </div>
+            <div class="object-row">
+                <span class="column left_third" id="dec-candels"> <span>DEC</span> <strong class="value nowrap"></strong> </span>
+                <span class="column middle_third" id="z_peak_candels"> <span>z_peak</span> <strong class="value nowrap"></strong> </span>
+            </div>
+            <div class="object-row">
+                <span class="column left_third" id="lmass_candels"> <span>lmass</span> <strong class="value nowrap"></strong> </span>
+            </div>
+        </div>
+        <img src="/static/images/1pixel.jpg" id="astrocut-image-candels" alt="astrocut image" class="column right-image small-image astrocut-image" />
+    </div>
+    <div class="info-header">
+        <p class="data-section-title">Photometry</p>
+    </div>
+    <div id="photometry-candels">
+        <div class="object-row">
+            <span class="column left" id="ACS_F435W_candels"> <span>ACS_F435W</span> <strong class="value nowrap"></strong> </span
+            ><span class="column left" id="ACS_F606W_candels"> <span>ACS_F606W</span> <strong class="value nowrap"></strong> </span>
+        </div>
+
+        <div class="object-row">
+            <span class="column left" id="ACS_F775W_candels"> <span>ACS_F775W</span> <strong class="value nowrap"></strong> </span
+            ><span class="column left" id="ACS_F814W"> <span>ACS_F814W</span> <strong class="value nowrap"></strong> </span>
+        </div>
+        <div class="object-row">
+            <span class="column left" id="ACS_F850LP_candels"> <span>ACS_F850LP</span> <strong class="value nowrap"></strong> </span
+            ><span class="column left" id="WFC3_F098M"> <span>WFC3_F098M</span> <strong class="value nowrap"></strong> </span>
+        </div>
+        <div class="object-row">
+            <span class="column left" id="WFC3_F105W"> <span>WFC3_F105W</span> <strong class="value nowrap"></strong> </span
+            ><span class="column left" id="WFC3_F125W"> <span>WFC3_F125W</span> <strong class="value nowrap"></strong> </span>
+        </div>
+        <div class="object-row">
+            <span class="column left" id="WFC3_F140W"> <span>WFC3_F140W</span> <strong class="value nowrap"></strong> </span
+            ><span class="column left" id="WFC3_F160W"> <span>WFC3_F160W</span> <strong class="value nowrap"></strong> </span>
+        </div>
+        <div class="object-row">
+            <span class="column left" id="IRAC_CH1"> <span>IRAC_CH1</span> <strong class="value nowrap"></strong> </span
+            ><span class="column left" id="IRAC_CH2"> <span>IRAC_CH2</span> <strong class="value nowrap"></strong> </span>
+        </div>
+        <div class="object-row">
+            <span class="column left" id="IRAC_CH3"> <span>IRAC_CH3</span> <strong class="value nowrap"></strong> </span
+            ><span class="column left" id="IRAC_CH4"> <span>IRAC_CH4</span> <strong class="value nowrap"></strong> </span>
+        </div>
+    </div>
+    <div class="info-header">
+        <p class="data-section-title">Morphology</p>
+    </div>
+    <div id="morphology-candels">
+        <div class="object-row">
+            <span class="column left" id="a_image_candels"> <span>a_image</span> <strong class="value nowrap"></strong> </span
+            ><span class="column left" id="b_image_candels"> <span>b_image</span> <strong class="value nowrap"></strong> </span>
+        </div>
+        <div class="object-row"></div>
+        <div class="object-row">
+            <span class="column right" id="fwhm_image"> <span>fwhm_image</span> <strong class="value nowrap"></strong> </span>
+            <span class="column left" id="flux_radius"> <span>flux_radius</span> <strong class="value nowrap"></strong> </span>
+        </div>
+        <div class="object-row">
+            <span class="column left" id="kron_radius_candels"> <span>kron_radius </span> <strong class="value nowrap"></strong> </span>
+        </div>
+    </div>
+</div>
+
+
+        <div id="tab-panel">
+            <div id="tabs">
+                <ul>
+                    <li id="sed-tab-header" class="graphtab"><a id="sed-tab-anchor" href="#sed-tab">Spectral Energy Distribution</a></li>
+                    <li id="images-tab-header" class="graphtab"><a id="images-tab-anchor" href="#images-tab">Images</a></li>
+                    <li id="spectra-tab-header" class="graphtab"><a id="spectra-tab-anchor" href="#spectra-tab">Spectra</a></li>
+                </ul>
+                <div id="sed-tab">
+                    <div id="sed-buttons" class="plot-buttons lower"></div>
+                </div>
+                <div id="images-tab">
+                    <div class="row" id="images-row">
+                    </div>
+                </div>
+                <div id="spectra-tab">
+                    <div id="app">
+                        <v-app>
+                            <v-main>
+                                <v-container-fluid>
+                                    <v-row class="mb-12" no-gutters>
+                                        <!-- a new column-->
+                                        <!-- embed the ipyvuetify "specviz" widget component from the specviz notebook. This component delivers
+                                                the main content view consisting of the DATB JDAviz application
+                                            -->
+                                        <div class="col notebook-container">
+                                            <jupyter-widget-embed
+                                                v-if="voilaConnection && fileSupported"
+                                                voila-url="http://localhost:8000"
+                                                notebook="jdaviz_test.ipynb"
+                                                mount-id="specviz"
+                                            >
+                                            </jupyter-widget-embed>
+                                        </div>
+                                    </v-row>
+
+                                    <!-- debug component -->
+                                    <v-row v-if="debug">
+                                        <v-col>
+                                            <v-card class="ma-4 mx-auto" width="600">
+                                                <v-card-title class="headline">Debug</v-card-title>
+                                                <v-card-text>
+                                                    <jupyter-widget-embed voila-url="http://localhost:8000" notebook="jdaviz_test.ipynb" mount-id="out"> </jupyter-widget-embed>
+                                                </v-card-text>
+                                            </v-card>
+                                        </v-col>
+                                    </v-row>
+                                </v-container-fluid>
+                            </v-main>
+                        </v-app>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <div class="position-right download-group">
+            <select id="sel-filetype" class="custom-select file-sel">
+                <option value="csv" selected="selected">CSV</option>
+                <option value="tsv">TSV</option>
+                <option value="json">JSON</option>
+                <option value="votable">VO Table</option>
+            </select>
+            <button id="btn-download" class="btn" type="button" title="Export Table">Export Table</button>
+            <!--
+            <button id="btn-download-fits" class="btn" type="button" title="Download Observations">Download Observations</button>
+            -->
+        </div>
+        <div>
+            <div class="horizontal-scroll"><table id="results" class="display compact table table-striped table-bordered"></table></div>
+        </div>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.2.23/vuetify.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="static/css/materialdesignicons.min.css" rel="stylesheet" />
+        <!-- <script src="/static/lib/jquery-3.5.1.min.js"></script>
+        <script src="/static/lib/jquery-ui.min.js"></script> -->
+
+
+
+
+
+        <!-- JS9 -->
+        <!--
+        <link type="text/css" rel="stylesheet" href="/static/lib/js9-2.5/js9support.css" />
+        <link type="text/css" rel="stylesheet" href="/static/lib/js9-2.5/js9.css" />
+        <script src="/static/lib/js9-2.5/js9-allinone.js"></script>
+        -->
+
+        <!-- <script src="/static/lib/jquery.dataTables.min.js"></script>
+        <script src="/static/lib/jquery.loadingModal.min.js"></script>
+        <script src="/static/lib/dataTables.bootstrap4.min.js"></script>
+        <script src="/static/lib/moment.min.2.2.4.0.js"></script> -->
+
+        <!-- JSZip https://stuk.github.io/jszip/ -->
+        <!-- <script src="/static/lib/jszip/dist/jszip.js"></script>
+        <script src="/static/lib/jszip/dist/jszip-utils.min.js"></script>
+
+        <script src="/static/lib/powertip/jquery.powertip.min.js"></script>
+        <link href="/static/lib/powertip/jquery.powertip.css" rel="stylesheet" type="text/css" />
+        <script src="/static/js/asb-util.js"></script>
+        <script src="/static/js/bundle.js"></script> -->
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+
+        <script src='https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js' crossorigin='anonymous'></script>
+        <script src='https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js' crossorigin='anonymous'></script>
+
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js" crossorigin='anonymous'></script>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.3.min.js" crossorigin='anonymous'></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+        <!-- JAVASCRIPT -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.2.23/vuetify.min.js"></script>
+        <script src="voila-embed.js"></script>
+        <script>
+
+var app = new Vue({
+    vuetify: new Vuetify({
+        icons: {
+            iconfont: "md",
+        },
+    }),
+    el: "#app",
+    delimiters: ["[[", "]]"], // switch delimiters so we can mix Vue and Jinja templating
+    computed: {
+    },
+    data() {
+        return {
+            voilaPort: "14000",
+            drawer: false,
+            title: "Voilà embed",
+            show_source: false,
+            debug: true,
+            keyPortalData: {},
+            portalData: {},
+            jwstInstrumentKeywords: null,
+            observationParameters: {},
+            dataReady: false,
+            expansionPanels: 0,
+            voilaConnection: true,
+            fileSupported: true,
+            filename: 'jw00668-o007_s00582_nirspec_f070lp-g140m_x1d.fits',
+            dataUrl: 'mast:JWST/product/jw00668-o007_s00582_nirspec_f070lp-g140m_x1d.fits',
+            target: 'Target'
+        };
+    },
+    created() {
+
+            // check if local attribute is set
+            islocal = true;
+
+
+    },
+    methods: {
+
+    },
+});
+        </script>
+
+        <!-- top level -->
+    </body>
+</html>

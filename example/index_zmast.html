@@ -127,7 +127,7 @@
                                         <!-- embed the ipyvuetify "specviz" widget component from the specviz notebook. This component delivers
                                                 the main content view consisting of the DATB JDAviz application
                                             -->
-                                        <div class="col notebook-container">
+                                        <v-col>
                                             <jupyter-widget-embed
                                                 v-if="voilaConnection && fileSupported"
                                                 voila-url="http://localhost:8000"
@@ -135,7 +135,7 @@
                                                 mount-id="specviz"
                                             >
                                             </jupyter-widget-embed>
-                                        </div>
+                                        </v-col>
                                     </v-row>
 
                                     <!-- debug component -->

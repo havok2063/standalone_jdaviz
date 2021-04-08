@@ -9,6 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="static/css/jdaviz.css" />
         <link href="static/css/specviz.css" rel="stylesheet" type="text/css" />
     </head>
 
@@ -108,14 +109,17 @@
                             <!-- embed the ipyvuetify "specviz" widget component from the specviz notebook. This component delivers
                             the main content view consisting of the DATB JDAviz application
                         -->
-                            <v-col>
-                                <v-alert type="error" v-if="!voilaConnection" class="voila-connection">Unable to connect to Voila server</v-alert>
-                                <jupyter-widget-embed
-                                    voila-url="http://localhost:8000"
-                                    notebook="jdaviz_test.ipynb"
-                                    mount-id="specviz"
-                                >
-                                </jupyter-widget-embed>
+                            <v-col >
+                                <div style="height: 400px; border: 10px solid green; overflow: hidden">
+                                    <v-alert type="error" v-if="!voilaConnection" class="voila-connection">Unable to connect to Voila server</v-alert>
+                                    <jupyter-widget-embed
+                                        class="jdaviz-panel"
+                                        voila-url="http://localhost:8000"
+                                        notebook="jdaviz_test.ipynb"
+                                        mount-id="specviz"
+                                    >
+                                    </jupyter-widget-embed>
+                                </div>
                             </v-col>
                         </v-row>
 

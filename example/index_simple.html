@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.2.23/vuetify.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
     <link href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="static/css/jdaviz.css" />
     <script src="voila-embed.js"></script>
 </head>
 <body>
@@ -22,6 +23,7 @@
                         -->
                     <v-col>
                         <jupyter-widget-embed
+                            class="jdaviz-panel"
                             voila-url="http://localhost:8000"
                             notebook="jdaviz_test.ipynb"
                             mount-id="specviz"

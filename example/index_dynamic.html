@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>MAST JDAviz</title>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.2.23/vuetify.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="static/css/specviz.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body class="">
+        <div id="app">
+            <v-app>
+                <!-- top application bar-->
+                <v-app-bar dense dark color="#03475c" app>
+                    <v-toolbar-title><a href="#" id="jdaviz-logo">JWST Spectral View</a> </v-toolbar-title>
+                    <span class="top-bar-filename">[[ filename ]]</span>
+                    <v-spacer></v-spacer>
+                    <div id="navbar">
+                        <navigation :uri="dataUrl"></navigation>
+                    </div>
+                </v-app-bar>
+
+                <v-content>
+                    <v-container-fluid>
+                        <v-row class="mb-12" no-gutters>
+                            <!-- Info Panel-->
+                            <v-col sm="5" md="4" lg="3" class="lightgrey pl-2 pr-2">
+                                <v-card tile outlined class="mx-auto" color="#d7d7d7">
+                                    <v-card-title class="target"> [[ target ]]</v-card-title>
+                                    <v-expansion-panels v-model="expansionPanels" accordion>
+                                        <v-expansion-panel :key="0">
+                                            <v-expansion-panel-header expand-icon="mdi-menu-down">
+                                                <v-card-title class="section-title">Basic Info</v-card-title>
+                                            </v-expansion-panel-header>
+                                            <v-expansion-panel-content>
+                                                <v-flex style="overflow: auto; height: auto">
+                                                    <v-simple-table dense>
+                                                        <template v-slot:default>
+                                                            <tbody class="lightgrey portal">
+                                                                <tr v-for="(value, name) in keyPortalData" :key="name">
+                                                                    <td v-bind:alt="value.descriptiveName">
+                                                                        <span class="portal-data-name">[[ name ]]</span>
+                                                                        <span class="portal-data-value">[[ value.formattedValue ]]</span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </template>
+                                                    </v-simple-table>
+                                                </v-flex>
+                                            </v-expansion-panel-content>
+                                        </v-expansion-panel>
+
+                                        <v-expansion-panel :key="1">
+                                            <v-expansion-panel-header expand-icon="mdi-menu-down">
+                                                <v-card-title class="section-title">Instrument Keywords</v-card-title>
+                                            </v-expansion-panel-header>
+                                            <v-expansion-panel-content>
+                                                <v-flex style="overflow: auto; height: 400px">
+                                                    <div v-if="!dataReady">Loading...</div>
+                                                    <v-simple-table dense v-if="dataReady">
+                                                        <template v-slot:default>
+                                                            <tbody class="lightgrey portal">
+                                                                <tr v-for="(value, name) in portalData" :key="name">
+                                                                    <td v-bind:alt="value.descriptiveName">
+                                                                        <span class="portal-data-name">[[ name ]]</span>
+                                                                        <span class="portal-data-value">[[ value.formattedValue ]]</span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </template>
+                                                    </v-simple-table>
+                                                </v-flex>
+                                            </v-expansion-panel-content>
+                                        </v-expansion-panel>
+
+                                        <v-expansion-panel :key="2">
+                                            <v-expansion-panel-header expand-icon="mdi-menu-down">
+                                                <v-card-title class="section-title">Observation Parameters</v-card-title>
+                                            </v-expansion-panel-header>
+                                            <v-expansion-panel-content>
+                                                <v-flex style="overflow: auto; height: 400px">
+                                                    <div v-if="!dataReady">Loading...</div>
+                                                    <v-simple-table dense v-if="dataReady">
+                                                        <template v-slot:default>
+                                                            <tbody class="lightgrey portal">
+                                                                <tr v-for="(value, name) in observationParameters" :key="name">
+                                                                    <td v-bind:alt="value.descriptiveName">
+                                                                        <span class="portal-data-name">[[ name ]]</span>
+                                                                        <span class="portal-data-value">[[ value.formattedValue ]]</span>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </template>
+                                                    </v-simple-table>
+                                                </v-flex>
+                                            </v-expansion-panel-content>
+                                        </v-expansion-panel>
+                                    </v-expansion-panels>
+                                </v-card>
+                            </v-col>
+
+                            <!-- a new column-->
+                            <!-- embed the ipyvuetify "specviz" widget component from the specviz notebook. This component delivers
+                            the main content view consisting of the DATB JDAviz application
+                        -->
+                            <div class='col notebook-container'>
+                                <v-alert type="error" v-if="!voilaConnection" class="voila-connection">Unable to connect to Voila server</v-alert>
+                                <jupyter-widget-embed
+                                    voila-url="http://localhost:8000"
+                                    notebook="jdaviz_test2.ipynb"
+                                    mount-id="specviz"
+                                >
+                                </jupyter-widget-embed>
+                            </div>
+                        </v-row>
+
+                        <!-- debug component -->
+                        <v-row v-if="debug">
+                            <v-col>
+                                <v-card class="ma-4 mx-auto" width="600">
+                                    <v-card-title class="headline">Debug</v-card-title>
+                                    <v-card-text>
+                                        <jupyter-widget-embed voila-url="http://localhost:8000" notebook="jdaviz_test2.ipynb" mount-id="out"> </jupyter-widget-embed>
+                                    </v-card-text>
+                                </v-card>
+                            </v-col>
+                        </v-row>
+                    </v-container-fluid>
+                </v-content>
+            </v-app>
+        </div>
+
+        <!-- JAVASCRIPT -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.2.23/vuetify.min.js"></script>
+        <script src="voila-embed.js"></script>
+        <script>
+
+var app = new Vue({
+    vuetify: new Vuetify({
+        icons: {
+            iconfont: "md",
+        },
+    }),
+    el: "#app",
+    delimiters: ["[[", "]]"], // switch delimiters so we can mix Vue and Jinja templating
+    computed: {
+        dtype() {
+            // return dimension type based on data URI
+            if (this.dataUrl.includes("s3d")) {
+                return "3d";
+            } else if (this.dataUrl.includes("s2d")) {
+                return "2d";
+            } else if (this.dataUrl.includes("x1d")) {
+                return "1d";
+            } else {
+                return "1d";
+            }
+        },
+    },
+    data() {
+        return {
+            voilaPort: "8000",
+            drawer: false,
+            title: "Voilà embed",
+            show_source: false,
+            debug: true,
+            keyPortalData: {},
+            portalData: {},
+            jwstInstrumentKeywords: null,
+            observationParameters: {},
+            dataReady: false,
+            expansionPanels: 0,
+            voilaConnection: true,
+            filename: 'jw00668-o007_s00582_nirspec_f070lp-g140m_x1d.fits',
+            dataUrl: 'mast:JWST/product/jw00668-o007_s00582_nirspec_f070lp-g140m_x1d.fits',
+            target: 'Target'
+        };
+    },
+    created() {
+        // called when Vue is created.  We send a request to the jwst/spectra notebook to trigger a "change
+        // event" and pass the target name parameter to the notebook.  TO DO: replace target name code
+        // with data product filename from Portal.
+
+        // this.setTarget(Utils.getParam("targname"));
+        // this.getFilename();
+        // this.getPairedFile();
+        // this.getDataUri();
+        // this.getPairedUri();
+        // try {
+        //     InstrumentKeywords.getJwstInstrumentKeywords(this);
+        // } catch (Exception) {
+        //     console.error("Unable to get Instrument Keywords");
+        // }
+        // ObservationParameters.getObservationParameters(this);
+
+        // check if local attribute is set
+        islocal = true;
+        requestWidget({
+            voilaUrl: 'http://localhost:8000',
+            notebook: "jdaviz_test2.ipynb",
+            mountId: "specviz",
+        }).then((sevent) => {
+            sevent.send({
+                event: "load",
+                data: 'jw00668-o007_s00582_nirspec_f070lp-g140m_x1d.fits',
+            });
+        });
+    },
+    methods: {
+
+    },
+});
+
+        </script>
+    </body>
+</html>

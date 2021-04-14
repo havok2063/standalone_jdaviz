@@ -1,8 +1,4 @@
-.jdaviz-panel {
-    height: 400px;
+.jdaviz > .v-application--wrap {
+    min-height: 400px;
     max-height: 400px;
-}
-
-.jdaviz-panel > .v-application--wrap {
-    min-height: unset;
 }

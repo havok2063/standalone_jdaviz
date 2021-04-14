@@ -12,9 +12,8 @@ This repo contains the following example pages
 To set up the front-end, in a terminal window, do the following:
 
 - cd into the `example` subdirectory
-- copy one of the example index files to index.html, e.g. `cp index_simple.html index.html`
 - run `npx serve` to spin up a local dev site
-- Navigate to `http://localhost:5000` or wherever `npx` locally deployed the front-end.
+- Navigate to http://localhost:5000/index_simple, http://localhost:5000/index_jwst, http://localhost:5000/index_zmast or wherever `npx` locally deployed the front-end.
 ## Run Voila Server
 To set up the back-end Voila server, in a new terminal window, do the following:
 

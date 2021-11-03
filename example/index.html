@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>MAST JDAviz</title>
+        <title>MAST Jdaviz</title>
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.2.23/vuetify.min.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
@@ -16,20 +16,20 @@
         <div id="app">
             <v-app>
                 <!-- top application bar-->
-                <v-app-bar dense dark color="#03475c" app>
+                <!-- <v-app-bar dense dark color="black" app>
                     <v-toolbar-title><a href="#" id="jdaviz-logo">JWST Spectral View</a> </v-toolbar-title>
                     <span class="top-bar-filename">[[ filename ]]</span>
                     <v-spacer></v-spacer>
                     <div id="navbar">
                         <navigation :uri="dataUrl"></navigation>
                     </div>
-                </v-app-bar>
+                </v-app-bar> -->
 
-                <v-content>
-                    <v-container-fluid>
-                        <v-row class="mb-12" no-gutters>
+                <v-main class='main-container'>
+                    <v-container fluid>
+                        <v-row class="mb-12">
                             <!-- Info Panel-->
-                            <v-col sm="5" md="4" lg="3" class="lightgrey pl-2 pr-2">
+                            <v-col sm="8" md="4" lg="3" class="lightgrey pl-2 pr-2">
                                 <v-card tile outlined class="mx-auto" color="#d7d7d7">
                                     <v-card-title class="target"> [[ target ]]</v-card-title>
                                     <v-expansion-panels v-model="expansionPanels" accordion>
@@ -104,21 +104,16 @@
                                 </v-card>
                             </v-col>
 
-                            <!-- a new column-->
-                            <!-- embed the ipyvuetify "specviz" widget component from the specviz notebook. This component delivers
-                            the main content view consisting of the DATB JDAviz application
-                        -->
-                            <div class="col notebook-container">
+                            <v-col sm="12" md="7" lg="8" class="notebook-container">
                                 <v-alert type="error" v-if="!voilaConnection" class="voila-connection">Unable to connect to Voila server</v-alert>
                                 <jupyter-widget-embed
                                     voila-url="http://localhost:8000"
                                     notebook="jdaviz_test.ipynb"
-                                    mount-id="specviz"
+                                    mount-id="jdaviz"
                                 >
                                 </jupyter-widget-embed>
-                            </div>
+                            </v-col>
                         </v-row>
-
                         <!-- debug component -->
                         <v-row v-if="debug">
                             <v-col>
@@ -130,8 +125,9 @@
                                 </v-card>
                             </v-col>
                         </v-row>
-                    </v-container-fluid>
-                </v-content>
+                    </v-container>
+                </v-main>
+
             </v-app>
         </div>
 
@@ -179,7 +175,12 @@ var app = new Vue({
             voilaConnection: true,
             filename: 'jw00668-o007_s00582_nirspec_f070lp-g140m_x1d.fits',
             dataUrl: 'mast:JWST/product/jw00668-o007_s00582_nirspec_f070lp-g140m_x1d.fits',
-            target: 'Target'
+            target: 'Target',
+            searchBarText: "",
+            previousSearchBarText: "init",
+            message: "",
+            showJdavizLogo: true,
+            showLeftPanel: true,
         };
     },
     created() {

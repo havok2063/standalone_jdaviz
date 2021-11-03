@@ -108,15 +108,15 @@
                             <!-- embed the ipyvuetify "specviz" widget component from the specviz notebook. This component delivers
                             the main content view consisting of the DATB JDAviz application
                         -->
-                            <div class='col notebook-container'>
+                            <v-col sm="12" md="7" lg="8" class="notebook-container">
                                 <v-alert type="error" v-if="!voilaConnection" class="voila-connection">Unable to connect to Voila server</v-alert>
                                 <jupyter-widget-embed
                                     voila-url="http://localhost:8000"
                                     notebook="jdaviz_test2.ipynb"
-                                    mount-id="specviz"
+                                    mount-id="jdaviz"
                                 >
                                 </jupyter-widget-embed>
-                            </div>
+                            </v-col>
                         </v-row>
 
                         <!-- debug component -->

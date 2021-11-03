@@ -7,13 +7,6 @@ body * {
 .lightgrey2 {
     background-color: #cccccc;
 }
-#jdaviz-logo {
-    color: white;
-    font-size: xx-large;
-    font-weight: 900;
-    text-decoration: none;
-    padding-left: 1rem;
-}
 .theme--dark.v-divider {
     border-color: white !important;
     border-width: 1px;
@@ -51,12 +44,6 @@ table {
 .v-data-table td,
 .v-data-table th {
     padding: 0 0;
-}
-.top-bar-filename {
-    margin-left: 2rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    overflow: hidden;
 }
 .lightgrey .v-card__title {
     padding-top: 4px;
@@ -105,11 +92,11 @@ td[alt]:hover:after {
     background-color: #bbbbbb;
     color: #03475c;
     border-right: 2rem;
-    border-radius: 0;
 }
 .v-expansion-panel-header--active {
     background-color: #03475c;
     color: white;
+    border-radius: 0 !important;
 }
 .v-expansion-panel-content__wrap {
     padding: 0 0;
@@ -137,4 +124,91 @@ td[alt]:hover:after {
     margin-left: 2rem;
     margin-right: 1rem;
     font-size: large;
+}
+.notebook-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-bar-text input {
+    border-color: #c75109;
+    color: white;
+}
+.v-input.search-bar-text.v-input--hide-details.v-input--is-label-active.v-input--is-dirty.theme--dark.v-text-field.v-text-field--is-booted.v-text-field--enclosed.v-text-field--outlined {
+    background: #03475c !important;
+}
+
+.search-bar {
+    background-color: #03475c;
+}
+.text-white input {
+    color: white !important;
+}
+
+.theme--light.v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state) > .v-input__control > .v-input__slot fieldset {
+    color: white !important;
+}
+
+.theme--light.v-text-field--outlined > .v-input__control > .v-input__slot fieldset {
+    color: white;
+}
+
+.theme--light.v-label {
+    color: white;
+}
+
+.search-button.v-btn.v-btn--flat.v-btn--text.theme--light {
+    color: white;
+    background-color: #c75109;
+    height: 54px;
+    border-radius: 0;
+}
+
+.v-text-field--enclosed .v-input__append-inner,
+.v-text-field--enclosed .v-input__append-outer,
+.v-text-field--enclosed .v-input__prepend-inner,
+.v-text-field--enclosed .v-input__prepend-outer,
+.v-text-field--full-width .v-input__append-inner,
+.v-text-field--full-width .v-input__append-outer,
+.v-text-field--full-width .v-input__prepend-inner,
+.v-text-field--full-width .v-input__prepend-outer {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.v-text-field .v-input__append-inner {
+    margin-right: -10px;
+    padding-right: 0;
+}
+.v-text-field {
+    border-radius: 0;
+}
+.v-alert.voila-connection.v-sheet.theme--dark.error {
+    background-color: #c75109;
+}
+main.v-content.main-container {
+    padding-top: 0 !important;
+}
+main.v-content.search-bar-container {
+    max-height: 128px;
+}
+
+#panel-collapse-bar {
+    background-image: url(../images/expand-teal.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: lightgrey;
+    transform: rotate(180deg);
+    cursor: pointer;
+    max-width: 55px;
+    flex: 10%;
+}
+#panel-expand-bar {
+    background-image: url(../images/expand-teal.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: lightgrey;
+    cursor: pointer;
+    width: 60px;
+    height: calc(100vh - 128px);
 }

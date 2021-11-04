@@ -128,6 +128,7 @@ td[alt]:hover:after {
 .notebook-container {
     margin-left: auto;
     margin-right: auto;
+    margin-top: -25px;
 }
 
 .search-bar-text input {
@@ -211,4 +212,8 @@ main.v-content.search-bar-container {
     cursor: pointer;
     width: 60px;
     height: calc(100vh - 128px);
+}
+
+.jdaviz {
+  height: 100vh !important;
 }

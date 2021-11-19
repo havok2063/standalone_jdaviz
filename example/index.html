@@ -3,110 +3,190 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>MAST Jdaviz</title>
-
+        <meta name="DCTERMS.language" content="en-us" />
+        <meta name="DCTERMS.title" content="JWST Spectral View" />
+        <meta name="description" content="Jdaviz is a tool for visualization and analysis of astronomical spectra from the James Webb Space Telescope." />
+        <meta
+            name="DCTERMS.description"
+            content="Jdaviz is a tool for visualization and analysis of astronomical spectra from the James Webb Space Telescope."
+        />
+        <meta name="keywords" content="spectra, James Webb Space Telescope, astronomy, MAST, Space Telescope, NASA, STScI" />
+        <meta name="DCTERMS.subject" content="spectra, James Webb Space Telescope, astronomy, MAST, Space Telescope, NASA, STScI" />
+        <title>{% block title %}MAST Jdaviz{% end %}</title>
+        <link rel="shortcut icon" type="image/png" href="/viz/static/images/mastlogo_thumb.png" />
+        <link rel="icon" type="image/png" href="/viz/static/images/mastlogo_thumb.png" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.2.23/vuetify.min.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Oswald:100,300,400,500,700,900" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.9.95/css/materialdesignicons.min.css" rel="stylesheet" />
         <link href="static/css/specviz.css" rel="stylesheet" type="text/css" />
+        <link href="static/css/dropdown.css" rel="stylesheet" type="text/css" />
+        <link href="static/css/top-bar.css" rel="stylesheet" type="text/css" />
+        <link href="static/css/tippy.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body class="">
         <div id="app">
             <v-app>
+                <!-- side navigation bar-->
+                <v-navigation-drawer v-model="drawer" asbolute temporary app>
+                    <v-list-item>
+                        <v-list-item-content>
+                            <v-list-item-title class="title">Application</v-list-item-title>
+                            <v-list-item-subtitle>subtext</v-list-item-subtitle>
+                        </v-list-item-content>
+                        <v-divider></v-divider>
+                    </v-list-item>
+                </v-navigation-drawer>
+
                 <!-- top application bar-->
-                <!-- <v-app-bar dense dark color="black" app>
-                    <v-toolbar-title><a href="#" id="jdaviz-logo">JWST Spectral View</a> </v-toolbar-title>
-                    <span class="top-bar-filename">[[ filename ]]</span>
-                    <v-spacer></v-spacer>
-                    <div id="navbar">
-                        <navigation :uri="dataUrl"></navigation>
-                    </div>
-                </v-app-bar> -->
+                <div class="top-bar">
+                    <header-bar :show-jdaviz-logo="showJdavizLogo"></header-bar>
+                </div>
 
-                <v-main class='main-container'>
-                    <v-container fluid>
-                        <v-row class="mb-12">
+                <!-- v-content is deprecated in favor of v-main in all versions of Vuetify.  However this
+                introduces a bug where the app-bar sits over the content in main.  This bug is fixed in newer
+                versions of Vuetify.  We should try to upgrade at some point, but there may be an upper limit to the Vuetify
+                version we can use, given constraints from the ipyvuetify developers. Consultation with them
+                should be done when upgrading. -->
+
+                <!-- Also, I think you can only have one v-main or v-content element; but maybe not -->
+                <v-content>
+                    <v-container-fluid class="search-bar-container">
+                        <v-row class="search-bar">
+                            <v-col cols="2" sm="2">
+                                <v-btn name="panel-open" class="ml-4 px-0 toggle-info-panel" v-if="!showLeftPanel" v-on:click="onExpand" ><v-icon dark>mdi-chevron-right</v-icon></v-btn>
+                                <v-btn name="panel-close" class="ml-4 px-0 toggle-info-panel" v-if="showLeftPanel" v-on:click="onCollapse"><v-icon dark>mdi-chevron-left</v-icon></v-btn>
+                                <tippy to="panel-open" v-if="!showLeftPanel" boundary="window" placement="right" arrow content="Open Info Panel"></tippy>
+                                <tippy to="panel-close" v-if="showLeftPanel" boundary="window" placement="right" arrow content="Close Info Panel"></tippy>
+                            </v-col>
+                            <v-col cols="7" sm="7">
+                                <v-text-field
+                                    v-model="searchBarText"
+                                    label="Search for related data products associated with the current observation"
+                                    placeholder="Input JWST data product URI or file name"
+                                    class="search-bar-text ml-4 mr-4 text-white"
+                                    outlined
+                                    hide-details="auto"
+                                    id="search-text"
+                                    v-on:keyup.enter="onClickSearchText"
+                                >
+                                    <template v-slot:append>
+                                        <v-btn class="search-button" text @click="onClickSearchText"> Search </v-btn>
+                                    </template>
+                                </v-text-field>
+                            </v-col>
+                            <v-col cols="2" sm="2">
+                                <div id="navbar-open-data-in">
+                                    <navigation :uri="dataUrl" :paired="pairedUrl"></navigation>
+                                </div>
+                            </v-col>
+                        </v-row>
+                    </v-container-fluid>
+                    <v-container-fluid class="main-container">
+                        <v-row class="mb-12" no-gutters>
                             <!-- Info Panel-->
-                            <v-col sm="8" md="4" lg="3" class="lightgrey pl-2 pr-2">
-                                <v-card tile outlined class="mx-auto" color="#d7d7d7">
-                                    <v-card-title class="target"> [[ target ]]</v-card-title>
-                                    <v-expansion-panels v-model="expansionPanels" accordion>
-                                        <v-expansion-panel :key="0">
-                                            <v-expansion-panel-header expand-icon="mdi-menu-down">
-                                                <v-card-title class="section-title">Basic Info</v-card-title>
-                                            </v-expansion-panel-header>
-                                            <v-expansion-panel-content>
-                                                <v-flex style="overflow: auto; height: auto">
-                                                    <v-simple-table dense>
-                                                        <template v-slot:default>
-                                                            <tbody class="lightgrey portal">
-                                                                <tr v-for="(value, name) in keyPortalData" :key="name">
-                                                                    <td v-bind:alt="value.descriptiveName">
-                                                                        <span class="portal-data-name">[[ name ]]</span>
-                                                                        <span class="portal-data-value">[[ value.formattedValue ]]</span>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </template>
-                                                    </v-simple-table>
-                                                </v-flex>
-                                            </v-expansion-panel-content>
-                                        </v-expansion-panel>
+                            <v-col md="4" lg="4" class="lightgrey" v-if="showLeftPanel" style="height: calc(100vh - 128px)">
+                                <v-card tile outlined class="mx-auto px-2" id="the-panel">
+                                    <v-card-title class="target"> <span name="target-name"> [[ target ]]</span> </v-card-title>
+                                    <tippy to="target-name" interactive interactiveBorder="0" placement="right" arrow>Astronomical Target Name</tippy>
+                                    <div v-if="!dataReady">Loading...</div>
 
-                                        <v-expansion-panel :key="1">
-                                            <v-expansion-panel-header expand-icon="mdi-menu-down">
-                                                <v-card-title class="section-title">Instrument Keywords</v-card-title>
+                                    <v-expansion-panels
+                                        v-model="openExpansionPanels"
+                                        multiple
+                                        accordion
+                                        class="panel-scroll-containment"
+                                        style="overflow: auto"
+                                    >
+                                        <v-expansion-panel v-for="(sectionHeader, index1) in sectionHeadingList" :key="index1">
+                                            <v-expansion-panel-header expand-icon="mdi-chevron-down">
+                                                <v-card-title class="section-title" :name="'title' + [[index1]]">[[ sectionHeader.title ]]</v-card-title>
+                                                <template v-slot:actions>
+                                                    <v-icon color="white">
+                                                        $expand
+                                                    </v-icon>
+                                                </template>
+                                                <tippy :to="'title' + [[index1]]" interactive interactiveBorder="0" placement="right" boundary="window" arrow>
+                                                    <span v-html="sectionHeadingDescriptions[index1]"></span>
+                                                </tippy>
                                             </v-expansion-panel-header>
                                             <v-expansion-panel-content>
-                                                <v-flex style="overflow: auto; height: 400px">
-                                                    <div v-if="!dataReady">Loading...</div>
-                                                    <v-simple-table dense v-if="dataReady">
-                                                        <template v-slot:default>
-                                                            <tbody class="lightgrey portal">
-                                                                <tr v-for="(value, name) in portalData" :key="name">
-                                                                    <td v-bind:alt="value.descriptiveName">
-                                                                        <span class="portal-data-name">[[ name ]]</span>
-                                                                        <span class="portal-data-value">[[ value.formattedValue ]]</span>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </template>
-                                                    </v-simple-table>
-                                                </v-flex>
-                                            </v-expansion-panel-content>
-                                        </v-expansion-panel>
-
-                                        <v-expansion-panel :key="2">
-                                            <v-expansion-panel-header expand-icon="mdi-menu-down">
-                                                <v-card-title class="section-title">Observation Parameters</v-card-title>
-                                            </v-expansion-panel-header>
-                                            <v-expansion-panel-content>
-                                                <v-flex style="overflow: auto; height: 400px">
-                                                    <div v-if="!dataReady">Loading...</div>
-                                                    <v-simple-table dense v-if="dataReady">
-                                                        <template v-slot:default>
-                                                            <tbody class="lightgrey portal">
-                                                                <tr v-for="(value, name) in observationParameters" :key="name">
-                                                                    <td v-bind:alt="value.descriptiveName">
-                                                                        <span class="portal-data-name">[[ name ]]</span>
-                                                                        <span class="portal-data-value">[[ value.formattedValue ]]</span>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </template>
-                                                    </v-simple-table>
-                                                </v-flex>
+                                                <v-expansion-panels v-model="openSubPanels[index1]" multiple accordion>
+                                                    <v-expansion-panel
+                                                        v-for="(subHead, index2) in getSectionSubHeadingList(sectionHeader.key)"
+                                                        :key="subHead + index2"
+                                                    >
+                                                        <v-expansion-panel-header expand-icon="mdi-chevron-down" class="subsection-header">
+                                                            <v-card-title class="subsection-title" :name="'subhead-title' + [[index1]] + [[index2]]"
+                                                                >&nbsp;&nbsp;[[ subHead ]]</v-card-title
+                                                            >
+                                                            <template v-slot:actions>
+                                                                <v-icon color="white">
+                                                                    $expand
+                                                                </v-icon>
+                                                            </template>
+                                                            <tippy
+                                                                :to="'subhead-title' + [[index1]] + [[index2]]"
+                                                                interactive
+                                                                interactiveBorder="0"
+                                                                placement="right"
+                                                                boundary="window"
+                                                                arrow
+                                                            >
+                                                                <span v-html="subSectionHeadingDescriptions[index1][index2]"></span>
+                                                            </tippy>
+                                                        </v-expansion-panel-header>
+                                                        <v-expansion-panel-content>
+                                                            <v-flex style="height: auto">
+                                                                <template>
+                                                                    <v-data-table
+                                                                        v-if="dataReady"
+                                                                        dense
+                                                                        hide-default-footer
+                                                                        hide-default-header
+                                                                        :headers="headers"
+                                                                        :items="getSubSectionDataList(sectionHeader.key, subHead)"
+                                                                        :items-per-page="200"
+                                                                        classname="instrument-keywords"
+                                                                    >
+                                                                        <template #item="{ item }">
+                                                                            <tr :name="[[subHead + item.name]]">
+                                                                                <td class="text-start ma-1 pl-2" label>[[ item.title ]]</td>
+                                                                                <td class="text-start ma-1 pl-2" label>[[ item.name ]]</td>
+                                                                                <td class="text-start ma-1 pl-2" label>[[ item.value ]]</td>
+                                                                                <td class="text-start ma-1 pl-2 pr-2" label>
+                                                                                    [[ item.units ]]
+                                                                                    <tippy
+                                                                                        :to="[[subHead + item.name]]"
+                                                                                        interactive
+                                                                                        interactiveBorder="0"
+                                                                                        placement="right"
+                                                                                        boundary="window"
+                                                                                        arrow
+                                                                                    >
+                                                                                        <span v-html="item.description"></span>
+                                                                                    </tippy>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </template>
+                                                                    </v-data-table>
+                                                                </template>
+                                                            </v-flex>
+                                                        </v-expansion-panel-content>
+                                                    </v-expansion-panel>
+                                                </v-expansion-panels>
                                             </v-expansion-panel-content>
                                         </v-expansion-panel>
                                     </v-expansion-panels>
                                 </v-card>
                             </v-col>
-
-                            <v-col sm="12" md="7" lg="8" class="notebook-container">
-                                <v-alert type="error" v-if="!voilaConnection" class="voila-connection">Unable to connect to Voila server</v-alert>
-                                <jupyter-widget-embed
+                            <!-- a new column-->
+                            <!-- embed the ipyvuetify "specviz" widget component from the specviz notebook. This component delivers
+                            the main content view consisting of the DATB Jdaviz application
+                            -->
+                            <v-col :cols="spectraColumns" class="notebook-container">
+                               <jupyter-widget-embed
                                     voila-url="http://localhost:8000"
                                     notebook="jdaviz_test.ipynb"
                                     mount-id="jdaviz"
@@ -114,6 +194,7 @@
                                 </jupyter-widget-embed>
                             </v-col>
                         </v-row>
+
                         <!-- debug component -->
                         <v-row v-if="debug">
                             <v-col>
@@ -125,90 +206,32 @@
                                 </v-card>
                             </v-col>
                         </v-row>
-                    </v-container>
-                </v-main>
-
+                    </v-container-fluid>
+                </v-content>
             </v-app>
         </div>
 
         <!-- JAVASCRIPT -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.2.23/vuetify.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"
+            integrity="sha512-QJsj3afWlCpnQ60XzzYE8Jb3IgHIK1BcGZox9rUSmRRq3Ocz9vQ1yR80eX2/b9jfx/UuT5zYWNdrM8Te/eCMhQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.2.23/vuetify.min.js"
+            integrity="sha512-P6W01PpJeltAo4Kv7cHo2X4i4CCIUPyxSR52EF6UzhpNqdIIYOqrjn1qRa0+ZawGr0YkneAu1/sePgdxIuHdxw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-tippy@4/dist/vue-tippy.min.js"></script>
         <script src="voila-embed.js"></script>
-        <script>
-
-var app = new Vue({
-    vuetify: new Vuetify({
-        icons: {
-            iconfont: "md",
-        },
-    }),
-    el: "#app",
-    delimiters: ["[[", "]]"], // switch delimiters so we can mix Vue and Jinja templating
-    computed: {
-        dtype() {
-            // return dimension type based on data URI
-            if (this.dataUrl.includes("s3d")) {
-                return "3d";
-            } else if (this.dataUrl.includes("s2d")) {
-                return "2d";
-            } else if (this.dataUrl.includes("x1d")) {
-                return "1d";
-            } else {
-                return "1d";
-            }
-        },
-    },
-    data() {
-        return {
-            voilaPort: "8000",
-            drawer: false,
-            title: "Voilà embed",
-            show_source: false,
-            debug: true,
-            keyPortalData: {},
-            portalData: {},
-            jwstInstrumentKeywords: null,
-            observationParameters: {},
-            dataReady: false,
-            expansionPanels: 0,
-            voilaConnection: true,
-            filename: 'jw00668-o007_s00582_nirspec_f070lp-g140m_x1d.fits',
-            dataUrl: 'mast:JWST/product/jw00668-o007_s00582_nirspec_f070lp-g140m_x1d.fits',
-            target: 'Target',
-            searchBarText: "",
-            previousSearchBarText: "init",
-            message: "",
-            showJdavizLogo: true,
-            showLeftPanel: true,
-        };
-    },
-    created() {
-        // called when Vue is created.  We send a request to the jwst/spectra notebook to trigger a "change
-        // event" and pass the target name parameter to the notebook.  TO DO: replace target name code
-        // with data product filename from Portal.
-
-        // this.setTarget(Utils.getParam("targname"));
-        // this.getFilename();
-        // this.getPairedFile();
-        // this.getDataUri();
-        // this.getPairedUri();
-        // try {
-        //     InstrumentKeywords.getJwstInstrumentKeywords(this);
-        // } catch (Exception) {
-        //     console.error("Unable to get Instrument Keywords");
-        // }
-        // ObservationParameters.getObservationParameters(this);
-
-        // check if local attribute is set
-        islocal = true;
-
-    },
-    methods: {
-
-    },
-});
-
-        </script>
+        <script src="static/js/utils.js"></script>
+        <script src="static/js/filename-parser.js"></script>
+        <script src="static/js/observation-parameters.js"></script>
+        <script src="static/js/instrument-keywords.js"></script>
+        <script src="static/js/specviz.js"></script>
+        <script src="static/js/dropdown.js"></script>
+        <script src="static/js/header-bar.js"></script>
     </body>
 </html>

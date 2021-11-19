@@ -1,0 +1,3150 @@
+{
+    "basic_info": {
+        "Target Info": [
+            {
+                "parameter_name": "target_name",
+                "display_name": "Target Name",
+                "description": "Target Name",
+                "example": "Ex. COMET-67P-CHURYUMOV-GER-UPDATE",
+                "datatype": "string",
+                "units": "null",
+                "group": "Target Information"
+            },
+            {
+                "parameter_name": "targ_ra",
+                "display_name": "Target RA",
+                "description": "target RA computed at mid time of exposure",
+                "example": "",
+                "datatype": "float",
+                "units": "degrees",
+                "group": "Target information",
+                "fits_keyword": "TARG_RA"
+            },
+            {
+                "parameter_name": "targ_dec",
+                "display_name": "Target Dec",
+                "description": "target Dec computed at mid time of exposure",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "degrees",
+                "group": "Target information",
+                "fits_keyword": "TARG_DEC"
+            },
+            {
+                "parameter_name": "target_classification",
+                "display_name": "Target Classification",
+                "description": "Type of target",
+                "example": "Ex. COMET;COMET BEING ORBITED BY THE ROSETTA SPACECRAFT;SOLAR SYSTEM",
+                "datatype": "string, multi-value separator ';'",
+                "units": "null",
+                "group": "Target Information"
+            }
+        ],
+        "Instrument Info": [
+            {
+                "parameter_name": "instrume",
+                "display_name": "Instrument",
+                "description": "Identifies the instrument used to acquire the data. The options are: NIRCAM, NIRSPEC, MIRI, NIRISS, or FGS.",
+                "example": "NIRCAM",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "INSTRUME"
+            },
+            {
+                "parameter_name": "exp_type",
+                "display_name": "Exposure Type",
+                "description": "Exposure type is used by DMS to direct Science Data Processing code (SDP) and calibration, as well as provide metadata for archive searches. For a given template the EXP_TYPE keyword value is obtained for each exposure from the EXPOSURE_TYPE exposure-level parameter in the Observatory Status File (OSF). In a few cases, additional information is required to set the value for the EXP_TYPE keyword.",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "EXP_TYPE"
+            },
+            {
+                "parameter_name": "template",
+                "display_name": "Template Name",
+                "description": "Observation template used in the proposal instruction to specify the observation",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "TEMPLATE"
+            },
+            {
+                "parameter_name": "channel",
+                "display_name": "Channel",
+                "description": "Identifies which channels (1,2,3,4) of IFU data are contained in an exposure. For exposures on the MIRIFUSHORT detector, CHANNEL will indicate that data from both channels 1 and 2 are present with a value of '12'. Similarly, for the MIRIFULONG detector, CHANNEL will be '34' to indicate that data from channels 3 and 4 are present. ",
+                "example": "12",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "CHANNEL"
+            },
+            {
+                "parameter_name": "filter",
+                "display_name": "Filter",
+                "description": "Identifies the MIRI filter element that was used. The imagers only moving part is an 18 position filter wheel. Filter positions are allocated as follows: 10 filters for imaging, 4 filter and diaphragm combinations for the coronagraphy, 1 neutral density filter, 1 ZnS-Ge double prism for the LRS mode, 1 opaque position for darks and 1 for a lens for ground test purposes.",
+                "example": "P750L",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "FILTER"
+            },
+            {
+                "parameter_name": "grating",
+                "display_name": "Grating",
+                "description": "Identifies the NIRSpec grating wheel assembly element was used.",
+                "example": "G140M",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "GRATING"
+            },
+            {
+                "parameter_name": "resolution",
+                "display_name": "Resolution",
+                "description": "Instrumental Resolution.  Varies by observing mode.  See [link] for details.",
+                "example": "null",
+                "datatype": "string",
+                "units": "um",
+                "group": "Instrument Information"
+            },
+            {
+                "parameter_name": "wavelength_coverage",
+                "display_name": "Wavelength Coverage",
+                "description": "Instrumental Wavelength Coverage.  Varies by observing mode.  See [link] for details.",
+                "example": "null",
+                "datatype": "string",
+                "units": "null",
+                "group": "Instrument Information"
+            },
+            {
+                "parameter_name": "pixel_scale",
+                "display_name": "Pixel Scale",
+                "description": "Instrumental Pixel Scale.  Varies by observing mode.  See [link] for details.",
+                "example": "null",
+                "datatype": "string",
+                "units": "arcsec/pixel",
+                "group": "Instrument Information"
+            },
+            {
+                "parameter_name": "field_of_view",
+                "display_name": "Field of View / Slit Size",
+                "description": "Instrumental Field of View, Aperture, or Slit Size.  Varies by observing mode.  See [link] for details.",
+                "example": "null",
+                "datatype": "string",
+                "units": "arcsec",
+                "group": "Instrument Information"
+            }
+        ],
+        "Observation Info": [
+            {
+                "parameter_name": "date_obs",
+                "display_name": "Date Observed",
+                "description": "UTC date of the start of the exposure with format yyyy-mm-dd. The start date is calculated by Science Data Processing code (SDP) based on the science telemetry image headers time stamps and the calculated exposure duration.",
+                "example": "2015-01-01",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "DATE-OBS"
+            },
+            {
+                "parameter_name": "date_obs_mjd",
+                "display_name": "Date Observed MJD",
+                "description": "The UTC observation start date (date_obs) in MJD format",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Observation identifiers",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "dataproduct_type",
+                "display_name": "Product Type",
+                "description": "Type of product",
+                "example": "Valid values: IMAGE, SPECTRUM, SED, TIMESERIES, VISIBILITY, EVENTLIST, CUBE, CATALOG, ENGINEERING, NULL",
+                "datatype": "string",
+                "units": "null",
+                "group": "Product Information"
+            },
+            {
+                "parameter_name": "obs_id",
+                "display_name": "Observation ID",
+                "description": "Observation identifier, given by mission",
+                "example": "U24Z0101T, N4QF18030",
+                "datatype": "string",
+                "units": "null",
+                "group": "Observation Information"
+            },
+            {
+                "parameter_name": "program",
+                "display_name": "Program ID",
+                "description": "The program number is a 5 character number that indentifies the prime proposal. It is found in the visit, program, and observation IDs",
+                "example": "80600",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "PROGRAM"
+            },
+            {
+                "parameter_name": "observtn",
+                "display_name": "Observation Number",
+                "description": "The observation number is three character number that specifies an observation within a parallel proposal (note: large numbers of observations are expected per proposal). The observation number is found in both the visit and observation IDs.",
+                "example": "004",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "OBSERVTN"
+            }
+        ]
+    },
+    "observation_parameters": {
+        "Proposal Information": [
+            {
+                "parameter_name": "obs_title",
+                "display_name": "Proposal Title",
+                "description": "Observation description from proposal",
+                "example": "Age-dating Star Clusters in M101",
+                "datatype": "string",
+                "units": "null",
+                "group": "Proposal Information"
+            },
+            {
+                "parameter_name": "project",
+                "display_name": "Project Name",
+                "description": "Project name",
+                "example": "E.g. HST, HLA, EUVE, hlsp_legus",
+                "datatype": "string, multi-value separator ';'",
+                "units": "null",
+                "group": "Proposal Information"
+            },
+            {
+                "parameter_name": "proposal_id",
+                "display_name": "Proposal ID",
+                "description": "Proposal ID",
+                "example": "E.g. EGCJC, 11360, 9401",
+                "datatype": "string",
+                "units": "null",
+                "group": "Proposal Information"
+            },
+            {
+                "parameter_name": "proposal_pi",
+                "display_name": "Principal Investigator",
+                "description": "Principal investigator's last name",
+                "example": "Chander, Chu, Malkin",
+                "datatype": "string",
+                "units": "null",
+                "group": "Proposal Information"
+            },
+            {
+                "parameter_name": "proposal_type",
+                "display_name": "Proposal Type",
+                "description": "Type of telescope proposal",
+                "example": "Eg. 3PI, GO, GO/DD, HLA, GII, AIS",
+                "datatype": "string",
+                "units": "null",
+                "group": "Proposal Information"
+            },
+            {
+                "parameter_name": "provenance_name",
+                "display_name": "Provenance Name",
+                "description": "Provenance name, or source of data",
+                "example": "E.g. TASOC, CALSTIS, PS1",
+                "datatype": "string",
+                "units": "null",
+                "group": "Proposal Information"
+            }
+        ],
+        "Observation Information": [
+            {
+                "parameter_name": "obs_collection",
+                "display_name": "Mission",
+                "description": "Collection",
+                "example": "E.g. SWIFT, PS1, HST, IUE",
+                "datatype": "string",
+                "units": "null",
+                "group": "Observation Information"
+            },
+            {
+                "parameter_name": "obs_id",
+                "display_name": "Observation ID",
+                "description": "Observation identifier, given by mission",
+                "example": "U24Z0101T, N4QF18030",
+                "datatype": "string",
+                "units": "null",
+                "group": "Observation Information"
+            },
+            {
+                "parameter_name": "t_exptime",
+                "display_name": "Exposure Time",
+                "description": "Exposure time",
+                "example": "null",
+                "datatype": "float",
+                "units": "sec",
+                "group": "Observation Information"
+            },
+            {
+                "parameter_name": "t_min",
+                "display_name": "Observation Start Time",
+                "description": "Observation start datetime",
+                "example": "",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Observation Information"
+            },
+            {
+                "parameter_name": "t_max",
+                "display_name": "Observation End Time",
+                "description": "Observation end datetime",
+                "example": "",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Observation Information"
+            },
+            {
+                "parameter_name": "intentType",
+                "display_name": "Observation Type",
+                "description": "Whether observation is for science or calibration.",
+                "example": "Valid values: science, calibration",
+                "datatype": "string",
+                "units": "null",
+                "group": "Observation Information"
+            },
+            {
+                "parameter_name": "obsType",
+                "display_name": "Observation Data Type",
+                "description": "Type of data collected (e.g. FITS OBSTYPE header)",
+                "example": "null",
+                "datatype": "string",
+                "units": "null",
+                "group": "Observation Information"
+            },
+            {
+                "parameter_name": "s_region",
+                "display_name": "Sky Footprint",
+                "description": "STC/S Footprint",
+                "example": "Will be ICRS circle or polygon. E.g. CIRCLE ICRS 17.71740689 -58.40043015 0.625",
+                "datatype": "string",
+                "units": "ICRS Shape",
+                "group": "Observation Information"
+            },
+            {
+                "parameter_name": "srcDen",
+                "display_name": "Number of Catalog Objects",
+                "description": "Number of cataloged objects found in observation",
+                "example": "null",
+                "datatype": "float",
+                "units": "null",
+                "group": "Observation Information"
+            },
+            {
+                "parameter_name": "sequence_number",
+                "display_name": "Sequence Number",
+                "description": "Sequence number, e.g. Kepler quarter or TESS sector",
+                "example": "null",
+                "datatype": "integer",
+                "units": "null",
+                "group": "Observation Information"
+            },
+            {
+                "parameter_name": "pol_states",
+                "display_name": "Polarization States",
+                "description": "List of polarization states in the data set",
+                "example": "null",
+                "datatype": "string",
+                "units": "null",
+                "group": "Observation Information"
+            }
+        ],
+        "Target Information": [
+            {
+                "parameter_name": "target_name",
+                "display_name": "Target Name",
+                "description": "Target Name",
+                "example": "Ex. COMET-67P-CHURYUMOV-GER-UPDATE",
+                "datatype": "string",
+                "units": "null",
+                "group": "Target Information"
+            },
+            {
+                "parameter_name": "target_classification",
+                "display_name": "Target Classification",
+                "description": "Type of target",
+                "example": "Ex. COMET;COMET BEING ORBITED BY THE ROSETTA SPACECRAFT;SOLAR SYSTEM",
+                "datatype": "string, multi-value separator ';'",
+                "units": "null",
+                "group": "Target Information"
+            },
+            {
+                "parameter_name": "s_ra",
+                "display_name": "Observation RA",
+                "description": "Observation Right Ascension. Usually Target RA but when no target specified, Footprint Center RA is used.",
+                "example": "90.75541",
+                "datatype": "float",
+                "units": "deg",
+                "group": "Target Information"
+            },
+            {
+                "parameter_name": "s_dec",
+                "display_name": "Observation Dec",
+                "description": "Observation Declination.  Usually Target Dec but when no target specified, Footprint Center Dec is used.",
+                "example": "-66.560555",
+                "datatype": "float",
+                "units": "deg",
+                "group": "Target Information"
+            },
+            {
+                "parameter_name": "mtFlag",
+                "display_name": "Moving Target",
+                "description": "Moving Target Flag",
+                "example": "If True, observation contains a moving target, if False or absent observation may or may not contain a moving target",
+                "datatype": "boolean",
+                "units": "null",
+                "group": "Target Information"
+            }
+        ],
+        "Product Information": [
+            {
+                "parameter_name": "dataproduct_type",
+                "display_name": "Product Type",
+                "description": "Type of product",
+                "example": "Valid values: IMAGE, SPECTRUM, SED, TIMESERIES, VISIBILITY, EVENTLIST, CUBE, CATALOG, ENGINEERING, NULL",
+                "datatype": "string",
+                "units": "null",
+                "group": "Product Information"
+            },
+            {
+                "parameter_name": "calib_level",
+                "display_name": "Calibration Level",
+                "description": "Calibration level",
+                "example": "0 = raw, 1 = uncalibrated, 2 = calibrated, 3 = science product, 4 = contributed science product",
+                "datatype": "integer",
+                "units": "null",
+                "group": "Product Information"
+            },
+            {
+                "parameter_name": "t_obs_release",
+                "display_name": "Release Date",
+                "description": "Dataset release date",
+                "example": "",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Product Information"
+            },
+            {
+                "parameter_name": "dataRights",
+                "display_name": "Data Rights",
+                "description": "Data Rights",
+                "example": "valid values: public,exclusive_access,restricted",
+                "datatype": "string",
+                "units": "null",
+                "group": "Product Information"
+            },
+            {
+                "parameter_name": "metaDataRights",
+                "display_name": "MetaData Rights",
+                "description": "Public or proprietary state of the observation metadata",
+                "example": "null",
+                "datatype": "string",
+                "units": "null",
+                "group": "Product Information"
+            }
+        ],
+        "Instrument Information": [
+            {
+                "parameter_name": "instrument_name",
+                "display_name": "Instrument",
+                "description": "Instrument Name",
+                "example": "E.g. WFPC2/WFC, UVOT, STIS/CCD",
+                "datatype": "string",
+                "units": "null",
+                "group": "Instrument Information"
+            },
+            {
+                "parameter_name": "filters",
+                "display_name": "Filters",
+                "description": "Instrument filters",
+                "example": "F469N, NUV, FUV, LOW DISP, MIRROR",
+                "datatype": "string, multi-value separator ';'",
+                "units": "null",
+                "group": "Instrument Information"
+            },
+            {
+                "parameter_name": "wavelength_region",
+                "display_name": "Waveband",
+                "description": "Energy Band",
+                "example": "EUV, XRAY, OPTICAL",
+                "datatype": "string, multi-value separator ';'",
+                "units": "null",
+                "group": "Instrument Information"
+            },
+            {
+                "parameter_name": "em_min",
+                "display_name": "Min. Wavelength",
+                "description": "Minimum Wavelength",
+                "example": "null",
+                "datatype": "float",
+                "units": "nm",
+                "group": "Instrument Information"
+            },
+            {
+                "parameter_name": "em_max",
+                "display_name": "Max. Wavelength",
+                "description": "Maximum Wavelength",
+                "example": "null",
+                "datatype": "float",
+                "units": "nm",
+                "group": "Instrument Information"
+            }
+        ],
+        "Access Information": [
+            {
+                "parameter_name": "dataURL",
+                "display_name": "Data URL",
+                "description": "Data URL",
+                "example": "null",
+                "datatype": "string",
+                "units": "null",
+                "group": "Access Information"
+            },
+            {
+                "parameter_name": "jpegURL",
+                "display_name": "Jpeg URL",
+                "description": "Preview Image URL",
+                "example": "https://archive.stsci.edu/hst/previews/N4QF/N4QF18090.jpg",
+                "datatype": "string",
+                "units": "null",
+                "group": "Access Information"
+            }
+        ],
+        "Internal Information": [
+            {
+                "parameter_name": "objID",
+                "display_name": "Object ID",
+                "description": "Plane ID of observation at given calibration level",
+                "example": "Long integer, e.g. 2012969445",
+                "datatype": "integer",
+                "units": "null",
+                "group": "Internal Information"
+            },
+            {
+                "parameter_name": "obsid",
+                "display_name": "Product Group ID",
+                "description": "Database identifier for obs_id",
+                "example": "Long integer, e.g. 2007590987",
+                "datatype": "integer",
+                "units": "null",
+                "group": "Internal Information"
+            }
+        ]
+    },
+    "instrument_keywords": {
+        "Standard parameters": [
+            {
+                "parameter_name": "nextend",
+                "display_name": "File Extensions",
+                "description": "Number of file extensions",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Standard parameters",
+                "fits_keyword": "NEXTEND"
+            }
+        ],
+        "Basic parameters": [
+            {
+                "parameter_name": "date",
+                "display_name": "File Creation Date UTC",
+                "description": "The UTC date and time when the HDU was created, in the form YYYY-MM-DDThh:mm:ss, where YYYY shall be the four-digit calendar year number, MM the two-digit month number with January given by 01 and December by 12, and DD the two-digit day of the month. The literal T shall separate the date and time, hh shall be the two-digit hour in the day, mm the two-digit number of minutes after the hour, and ss the number of seconds after the minute. Default values must not be given to any portion of the date/time string, and leading zeros must not be omitted.",
+                "example": "2015-01-01T00:00:00",
+                "datatype": "string",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "DATE"
+            },
+            {
+                "parameter_name": "date_mjd",
+                "display_name": "File Creation Date MJD",
+                "description": "UTC file creation date (date) in MJD format",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Basic parameters",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "origin",
+                "display_name": "Institution Origin",
+                "description": "Identifies the organization or institution responsible for creating the FITS file.",
+                "example": "STSCI",
+                "datatype": "string",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "ORIGIN"
+            },
+            {
+                "parameter_name": "timesys",
+                "display_name": "Principal Time System",
+                "description": "Principal time system for time-related keywords. Universal Time Coordinated (UTC) will be used.",
+                "example": "UTC",
+                "datatype": "string",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "TIMESYS"
+            },
+            {
+                "parameter_name": "filename",
+                "display_name": "Filename",
+                "description": "Name of the file.<P>Exposure-based science product file names are expressed as jwpppppooovvv_ggsaa_eeeee_detector_prod.fits, where:<ul><li>ppppp - Program Number<li>ooo - Observation Number<li>vvv - Visit Number<li>gg - Visit Group<li>s - Parallel Sequence id (1 prime, 2-5 parallel)<li>aa - Activity (base 36)<li>eeeee - Exposure Number<li>detector - Detector name<li>prod - Product type designation (Ex: rate, uncal, cal)</ul><p>Source-based science product file names are expressed as jwppppp_target_instrument_opticalelement_prod.fits, where:<ul><li>ppppp - Program number<li>target - Target ID<li>instrument - Instrument name<li>opticalelement - List of filter/grating names<li>Product type designation (Ex: rate, uncal, cal)</ul>",
+                "example": "jw12345012009_01101_00012_nrcalong_uncal.fits",
+                "datatype": "string",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "FILENAME"
+            },
+            {
+                "parameter_name": "filetype",
+                "display_name": "File Type",
+                "description": "Type of data found in file: original, uncalibrated, slope-fit, calibrated, etc.",
+                "example": "UNCALIBRATED",
+                "datatype": "string",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "FILETYPE"
+            },
+            {
+                "parameter_name": "sdp_ver",
+                "display_name": "Data Processing Software Version",
+                "description": "Version number of the data processing software",
+                "example": "2016_1",
+                "datatype": "string",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "SDP_VER"
+            },
+            {
+                "parameter_name": "prd_ver",
+                "display_name": "Project Reference Db Version",
+                "description": "S&OC Project Reference Database (S&OC PRD) version number used in data processing",
+                "example": "PRDDEVSOC-D-012",
+                "datatype": "string",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "PRD_VER"
+            },
+            {
+                "parameter_name": "oss_ver",
+                "display_name": "OSS Version",
+                "description": "Version number of the OSS software",
+                "example": "8.3.1",
+                "datatype": "string",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "OSS_VER"
+            },
+            {
+                "parameter_name": "cal_ver",
+                "display_name": "Calibration Software Version",
+                "description": "Calibration Software Version",
+                "example": "0.6.0",
+                "datatype": "string",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "CAL_VER"
+            },
+            {
+                "parameter_name": "cal_vcs",
+                "display_name": "Calibration Software Repo Version",
+                "description": "Calibration Software Repository Version",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "CAL_VCS"
+            },
+            {
+                "parameter_name": "telescop",
+                "display_name": "Telescope",
+                "description": "A character string identifying the telescope used to acquire the data associated with the header: JWST.",
+                "example": "JWST",
+                "datatype": "string",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "TELESCOP"
+            },
+            {
+                "parameter_name": "hga_move",
+                "display_name": "High Gain Antenna Move",
+                "description": "High Gain Antenna moved during data collection",
+                "example": "F",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "HGA_MOVE"
+            },
+            {
+                "parameter_name": "datamodl",
+                "display_name": "JWST DataModel",
+                "description": "The DATAMODL keyword records the name of the calibration pipeline software data model class to be used when loading/accessing the data in the FITS file.",
+                "example": "RampModel",
+                "datatype": "string",
+                "units": "",
+                "group": "Basic parameters",
+                "fits_keyword": "DATAMODL"
+            },
+            {
+                "parameter_name": "pwfseet",
+                "display_name": "Previous WFS Exposure End MJD",
+                "description": "Exposure end time from the previous WFS exposure (Modified Julian Date)",
+                "example": "57403.54198563658",
+                "datatype": "float",
+                "units": "days",
+                "group": "Basic parameters",
+                "fits_keyword": "PWFSEET"
+            },
+            {
+                "parameter_name": "nwfsest",
+                "display_name": "Next WFD Exposure Time MJD",
+                "description": "Exposure start time from the next WFS exposure (Modified Julian Date)",
+                "example": "57403.54198563658",
+                "datatype": "float",
+                "units": "days",
+                "group": "Basic parameters",
+                "fits_keyword": "NWFSEST"
+            }
+        ],
+        "IFU cube parameters": [
+            {
+                "parameter_name": "errtype",
+                "display_name": "Error Type",
+                "description": "The type of values contained in the error array. ERR = standard deviation; IERR = inverse standard deviation; VAR = variance; IVAR = inverse variance.",
+                "example": "IERR",
+                "datatype": "string",
+                "units": "",
+                "group": "IFU cube parameters",
+                "fits_keyword": "ERRTYPE"
+            },
+            {
+                "parameter_name": "rois",
+                "display_name": "ROI Size",
+                "description": "The radius of the region of interest in the spatial dimensions used to set IFU cube spaxel size. In units of arc seconds.",
+                "example": "",
+                "datatype": "float",
+                "units": "",
+                "group": "IFU cube parameters",
+                "fits_keyword": "ROIS"
+            },
+            {
+                "parameter_name": "roiw",
+                "display_name": "ROI Size",
+                "description": "The radius of the region of interest in the spatial dimensions used to set IFU cube spaxel size. In units of arc seconds.",
+                "example": "",
+                "datatype": "float",
+                "units": "",
+                "group": "IFU cube parameters",
+                "fits_keyword": "ROIW"
+            },
+            {
+                "parameter_name": "wtype",
+                "display_name": "Weighting Type",
+                "description": "The type of weighting used when combining point cloud fluxes to represent the IFU spaxel flux.",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "IFU cube parameters",
+                "fits_keyword": "WTYPE"
+            },
+            {
+                "parameter_name": "wpower",
+                "display_name": "Weighting Power",
+                "description": "The weighting power used to control the weighting of the distances between the point cloud member and IFU spaxel center.",
+                "example": "",
+                "datatype": "float",
+                "units": "",
+                "group": "IFU cube parameters",
+                "fits_keyword": "WPOWER"
+            }
+        ],
+        "Programmatic information": [
+            {
+                "parameter_name": "title",
+                "display_name": "Proposal Title",
+                "description": "Proposal title. The proposal title can have a length of up to 150 characters. This is longer than the 68 characters available to a single FITS keyword value. The TITLE keyword will use the FITS long string value convention to end incomplete values with an ampersand and continue the value in next record with a CONTINUE element.",
+                "example": "Cryo2 SIC NIRISS",
+                "datatype": "string",
+                "units": "",
+                "group": "Programmatic information",
+                "fits_keyword": "TITLE"
+            },
+            {
+                "parameter_name": "pi_name",
+                "display_name": "Principal Investigator (PI)",
+                "description": "Name of principal investigator (last, first, mi). For JWST, the PI_NAME keyword concatenates the Principle Investigator last name, suffix (if any), first name, and middle initial into a comma separated value string for a single keyword.",
+                "example": "Smith,Dr,Jane,D",
+                "datatype": "string",
+                "units": "",
+                "group": "Programmatic information",
+                "fits_keyword": "PI_NAME"
+            },
+            {
+                "parameter_name": "category",
+                "display_name": "Program Category",
+                "description": "The category keyword value describes the type of proposal submitted: archive (AR), calibration (CAL), director discretionary (DD), engineering (ENG), General Observer (GO), Guaranteed Time Observer (GTO), or NASA.",
+                "example": "AR",
+                "datatype": "string",
+                "units": "",
+                "group": "Programmatic information",
+                "fits_keyword": "CATEGORY"
+            },
+            {
+                "parameter_name": "subcat",
+                "display_name": "Program Sub-Category",
+                "description": "For the Guaranteed Time Observer (GTO) and Calibration (CAL) program types, the subcategory keyword values of FGS, MIRI, NIRCAM, NIRISS, NIRSPEC, and SC, are allowed. A spacecraft (SC) subcategory represents a program that is not specific to a single science instrument.",
+                "example": "FGS",
+                "datatype": "string",
+                "units": "",
+                "group": "Programmatic information",
+                "fits_keyword": "SUBCAT"
+            },
+            {
+                "parameter_name": "scicat",
+                "display_name": "Science Category",
+                "description": "Science category assigned during TAC process",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Programmatic information",
+                "fits_keyword": "SCICAT"
+            },
+            {
+                "parameter_name": "cont_id",
+                "display_name": "Continuation ID",
+                "description": "Continuation of the specified previous program",
+                "example": "0 or 80400",
+                "datatype": "integer",
+                "units": "",
+                "group": "Programmatic information",
+                "fits_keyword": "CONT_ID"
+            }
+        ],
+        "Observation identifiers": [
+            {
+                "parameter_name": "obs_id",
+                "display_name": "Observation ID",
+                "description": "An example of the OBS_ID and related keywords -<br>OBS_ID = 'V80600013001P0000000002101' / Programmatic observation identifier<br>VISIT_ID= '80600013001' / Visit identifier<br>PROGRAM = '80600 ' / Program number<br>OBSERVTN= '013 ' / Observation number<br>VISIT = '001 ' / Visit number<br>VISITGRP= '02 ' / Visit group identifier<br>SEQ_ID = '1 ' / Parallel sequence identifier<br>ACT_ID = '01 ' / Activity identifier<br>EXPOSURE= '1 ' / Exposure request number<br>visit_id = Program number + Observation number + Visit number<br><br>The OBS_ID = 'V' + visit_id + 'P' + parallel-program number + parallel-observation number + visit group identifier + parallel sequence identifier + activity_identifier.<br><br>The eight characters after the 'P' are only populated with non-zero values of the parallel program number and observation number if the exposure is a parallel. Parallel observations occur in the same visit as the prime observation, so the visit number is not needed after the 'P'. For a prime exposure with one or more exposures executing in parallel, only the prime program number and observation number will be populated. For a parallel exposure, both the prime program number / observation number and the parallel program number / observation number will be populated.<br><br>The exposure_id is not included in the OBS_ID. It is a separate field in the science image header of the ssr file.<br><br>Some of the nomenclature is confusing, especially the over use of observation in programmatic observation identifier and observation number.",
+                "example": "V80600004001P0000000002101",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "OBS_ID"
+            },
+            {
+                "parameter_name": "visit_id",
+                "display_name": "Visit ID",
+                "description": "The eleven character visit_id, <PPPPP><OOO><VVV>, uniquely indentifies the visit and consists of the program, observation and visit destinations. This visit_id is explicitly embedded in the file name and also included in the Science Image header and footer in the Recorded Science Data file",
+                "example": "80600004001",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "VISIT_ID"
+            },
+            {
+                "parameter_name": "program",
+                "display_name": "Program ID",
+                "description": "The program number is a 5 character number that indentifies the prime proposal. It is found in the visit, program, and observation IDs",
+                "example": "80600",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "PROGRAM"
+            },
+            {
+                "parameter_name": "observtn",
+                "display_name": "Observation Number",
+                "description": "The observation number is three character number that specifies an observation within a parallel proposal (note: large numbers of observations are expected per proposal). The observation number is found in both the visit and observation IDs.",
+                "example": "004",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "OBSERVTN"
+            },
+            {
+                "parameter_name": "visit",
+                "display_name": "Visit Number",
+                "description": "The visit number is a three character number that indentifies the visit within an observation. Multiple visits per observation are needed for mosaics and some long observations. Note fields that trace back to the proposal are called numbers rather than IDs to emphasize that only decimal numbers can be used. The visit number can be found in both the visit, program and observation IDs.",
+                "example": "009",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "VISIT"
+            },
+            {
+                "parameter_name": "obslabel",
+                "display_name": "Observation Label",
+                "description": "Proposer (users defined) label for the observation ",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "OBSLABEL"
+            },
+            {
+                "parameter_name": "obsfoldr",
+                "display_name": "Observation Folder",
+                "description": "The name of the APT observation folder in which this observation is contained.",
+                "example": "Observations for SOR4B-OTB-20190204",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "OBSFOLDR"
+            },
+            {
+                "parameter_name": "date_obs",
+                "display_name": "Date Observed",
+                "description": "UTC date of the start of the exposure with format yyyy-mm-dd. The start date is calculated by Science Data Processing code (SDP) based on the science telemetry image headers time stamps and the calculated exposure duration.",
+                "example": "2015-01-01",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "DATE-OBS"
+            },
+            {
+                "parameter_name": "date_obs_mjd",
+                "display_name": "Date Observed MJD",
+                "description": "The UTC observation start date (date_obs) in MJD format",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Observation identifiers",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "date_beg",
+                "display_name": "Exposure Start Date",
+                "description": "DateTime start of exposure, formatted as an ISO-8601 string, yyyy-mm-ddThh:mm:ss.sss.",
+                "example": "2016-01-18T04:20:43.374",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "DATE-BEG"
+            },
+            {
+                "parameter_name": "date_beg_mjd",
+                "display_name": "Exposure Start Date MJD",
+                "description": "Start of exposure (date_beg) in MJD format",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Observation identifiers",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "date_end",
+                "display_name": "Exposure End Date",
+                "description": "DateTime end of exposure, formatted as an ISO-8601 string, yyyy-mm-ddThh:mm:ss.sss. The end date is calculated by Science Data Processing code (SDP) based on the science telemetry image headers time stamps.",
+                "example": "2016-01-18T04:20:43.374",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "DATE-END"
+            },
+            {
+                "parameter_name": "date_end_mjd",
+                "display_name": "Exposure End Date MJD",
+                "description": "End of exposure (date_end) in MJD format",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Observation identifiers",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "visitgrp",
+                "display_name": "Visit Group ID",
+                "description": "The visit group is a 2 character indentifier that specifies a group within a visit file (used for parallel synchronization). It is included in the observation ID, in order to trace the exposure to the commanding request and uniquely identify the exposure.",
+                "example": "01",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "VISITGRP"
+            },
+            {
+                "parameter_name": "seq_id",
+                "display_name": "Parallel Sequence ID",
+                "description": "The parallel sequence identifier is single character which is used to identify parallel sequences within a group, i.e. it indicates insturment configuration for the exposure. 'S' for no instrment, 1 for the prime insturment, or 2-5 for insurments that were operating in parallel, but not prime. The SEQ_ID is included in the observation ID.",
+                "example": "1",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "SEQ_ID"
+            },
+            {
+                "parameter_name": "act_id",
+                "display_name": "Activity ID",
+                "description": "The activity identifier is a two character indentifier (base 36), which identifies activity within a sequence. It is included in the observation ID. ",
+                "example": "01",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "ACT_ID"
+            },
+            {
+                "parameter_name": "exposure",
+                "display_name": "Exposure Request Number",
+                "description": "The exposure request number within a single activity is 5 characters long and is included in the observation ID. ",
+                "example": "00001",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "EXPOSURE"
+            },
+            {
+                "parameter_name": "bkgdtarg",
+                "display_name": "Background Target",
+                "description": "Indicates whether the proposer flagged the target or target field contained in the exposure to be used as a background target for other exposures.",
+                "example": "T",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "BKGDTARG"
+            },
+            {
+                "parameter_name": "template",
+                "display_name": "Template Name",
+                "description": "Observation template used in the proposal instruction to specify the observation",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "TEMPLATE"
+            },
+            {
+                "parameter_name": "eng_qual",
+                "display_name": "Engineering DB Quality",
+                "description": "if not = OK (value=SUSPECT), indicates that one or more level1b FITS keywords filled via the engineering database calls are suspected of having incorrect values because the engineering values were only found outside the exposure start,end range",
+                "example": "OK",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "ENG_QUAL"
+            },
+            {
+                "parameter_name": "engqlptg",
+                "display_name": "Pointing Source Quality",
+                "description": "This keyword indicates the source/quality of the spacecraft pointing keywords. The input mnemonics required to calculate the pointing are queried from the Engineering telemetry database for the time range of the exposure. If the mnemonics are NOT found, the planned pointing, from keywords TARG_RA/TARG_DEC, are used and ENGQLPTG is set to PLANNED. If the input mnemonics are retrieved, the spacecraft pointing values are calculated from them and ENGQLPTG is set to one of the following: CALCULATED (an alias for CALCULATED_ORIGINAL); CALCULATED_ORIGINAL (pointing calculated by the original, pre-finalized algorithm based on spacecraft orientation); CALCULATED_COARSE_TR_202107 (pointing calculated for COARSE mode tracking from the 2021-07 version of the Technical Report (TR)); CALCULATED_GSCMD (pointing calculated based on commanded guide star position); CALCULATED_GSCMD_V3PAGS (pointing calculated using estimated V3 position angle), CALCULATED_TR_202105 (pointing calculated from spacecraft orientation without velocity aberration correction from the 2021-05 version of the TR); CALCULATED_TR_202105_VA (pointing calculated from spacecraft orientation with velocity aberration correction from the 2021-05 version of the TR); or CALCULATED_TRACK_TR_202107 (pointing calculated for TRACK/FINEGUIDE mode tracking from the 2021-07 version of the TR).",
+                "example": "CALCULATED",
+                "datatype": "string",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "ENGQLPTG"
+            },
+            {
+                "parameter_name": "is_psf",
+                "display_name": "Is PSF Ref",
+                "description": "This keyword indicates whether the exposure is intended to be used as a PSF reference observation for associated coronagraphic or AMI observations of science targets.",
+                "example": "",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "IS_PSF"
+            },
+            {
+                "parameter_name": "selfref",
+                "display_name": "Self-Referencing PSF",
+                "description": "This keyword indicates whether this coronagraphic observation is to be regarded as part of a self-referencing survey, which means that it can be treated as both a science target observation and a reference PSF observation.",
+                "example": "",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Observation identifiers",
+                "fits_keyword": "SELFREF"
+            }
+        ],
+        "Visit information": [
+            {
+                "parameter_name": "visitype",
+                "display_name": "Visit Type",
+                "description": "specific type of visit",
+                "example": "PRIME_TARGETED_FIXED",
+                "datatype": "string",
+                "units": "",
+                "group": "Visit information",
+                "fits_keyword": "VISITYPE"
+            },
+            {
+                "parameter_name": "vststart",
+                "display_name": "Visit Start Time",
+                "description": "Observatory time when the visit started (UTC), will not appear for parallels since OSF:COMPLETED_VISIT is not populated for parallels",
+                "example": "2011-06-16T23:05:51",
+                "datatype": "string",
+                "units": "",
+                "group": "Visit information",
+                "fits_keyword": "VSTSTART"
+            },
+            {
+                "parameter_name": "vststart_mjd",
+                "display_name": "Visit Start MJD",
+                "description": "Visit start time (vststart) in MJD format",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Visit information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "visitsta",
+                "display_name": "Visit Status",
+                "description": "Status of the visit, will not appear for parallels since OSF:COMPLETED_VISIT is not populated for parallels",
+                "example": "DATALOSS",
+                "datatype": "string",
+                "units": "",
+                "group": "Visit information",
+                "fits_keyword": "VISITSTA"
+            },
+            {
+                "parameter_name": "nexposur",
+                "display_name": "Planned Exposures",
+                "description": "Total number of planned exposures in the visit",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Visit information",
+                "fits_keyword": "NEXPOSUR"
+            },
+            {
+                "parameter_name": "intarget",
+                "display_name": "Is Internally Targeted",
+                "description": "T if at least one exposure in the visit is internally targeted. F if no exposure in the visit is internally targeted.",
+                "example": "",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Visit information",
+                "fits_keyword": "INTARGET"
+            },
+            {
+                "parameter_name": "targoopp",
+                "display_name": "Is Target of Opportunity",
+                "description": "visit scheduled as target of opportunity (T/F)",
+                "example": "T",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Visit information",
+                "fits_keyword": "TARGOOPP"
+            },
+            {
+                "parameter_name": "tsovisit",
+                "display_name": "TSO Visit Indicator",
+                "description": "TSOVISIT indicates whether this exposure is part of a visit that used the Time Series Observation special requirement in APT and therefore needs to be processed by DMS as a TSO exposure.",
+                "example": "F",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Visit information",
+                "fits_keyword": "TSOVISIT"
+            },
+            {
+                "parameter_name": "exp_only",
+                "display_name": "Special Exposure Command",
+                "description": "EXP_ONLY flags if exposure was taken through special commanding without SI configuration",
+                "example": "F",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Visit information",
+                "fits_keyword": "EXP_ONLY"
+            },
+            {
+                "parameter_name": "crowdfld",
+                "display_name": "FGS Crowded Field",
+                "description": "FGSes in a crowded field (T/F)",
+                "example": "T",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Visit information",
+                "fits_keyword": "CROWDFLD"
+            }
+        ],
+        "Target information": [
+            {
+                "parameter_name": "targprop",
+                "display_name": "Proposer's Target Name",
+                "description": "Proposer prefered name for the target (2-31 characters)",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Target information",
+                "fits_keyword": "TARGPROP"
+            },
+            {
+                "parameter_name": "targname",
+                "display_name": "Target Name",
+                "description": "standard astronomical catalog name for the target",
+                "example": "NGC 104",
+                "datatype": "string",
+                "units": "",
+                "group": "Target information",
+                "fits_keyword": "TARGNAME"
+            },
+            {
+                "parameter_name": "targtype",
+                "display_name": "Target Type",
+                "description": "fixed target, moving target, or generic target",
+                "example": "FIXED",
+                "datatype": "string",
+                "units": "",
+                "group": "Target information",
+                "fits_keyword": "TARGTYPE"
+            },
+            {
+                "parameter_name": "targ_ra",
+                "display_name": "Target RA",
+                "description": "target RA computed at mid time of exposure",
+                "example": "",
+                "datatype": "float",
+                "units": "degrees",
+                "group": "Target information",
+                "fits_keyword": "TARG_RA"
+            },
+            {
+                "parameter_name": "targ_dec",
+                "display_name": "Target Dec",
+                "description": "target Dec computed at mid time of exposure",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "degrees",
+                "group": "Target information",
+                "fits_keyword": "TARG_DEC"
+            },
+            {
+                "parameter_name": "targura",
+                "display_name": "Target RA Error",
+                "description": "target RA uncertainty computed at mid time of exposure",
+                "example": "",
+                "datatype": "float",
+                "units": "arcsec",
+                "group": "Target information",
+                "fits_keyword": "TARGURA"
+            },
+            {
+                "parameter_name": "targudec",
+                "display_name": "Target Dec Error",
+                "description": "target Dec uncertainty computed at mid time of exposure",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "arcsec",
+                "group": "Target information",
+                "fits_keyword": "TARGUDEC"
+            },
+            {
+                "parameter_name": "mu_ra",
+                "display_name": "Proper Motion RA",
+                "description": "proper motion of the target in RA as given by the user in APT",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "arcsec/year",
+                "group": "Target information",
+                "fits_keyword": "MU_RA"
+            },
+            {
+                "parameter_name": "mu_dec",
+                "display_name": "Proper Motion Dec",
+                "description": "proper motion of the target in DEC as given by the user in APT",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "arcsec/year",
+                "group": "Target information",
+                "fits_keyword": "MU_DEC"
+            },
+            {
+                "parameter_name": "mu_epoch",
+                "display_name": "Proper Motion Epoch",
+                "description": "Epoch of the proper motion values",
+                "example": "0.0",
+                "datatype": "string",
+                "units": "UT",
+                "group": "Target information",
+                "fits_keyword": "MU_EPOCH"
+            },
+            {
+                "parameter_name": "mu_epoch_mjd",
+                "display_name": "Proper Motion Epoch MJD",
+                "description": "Epoch of proper motion (mu_epoch) in MJD format",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Target information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "prop_ra",
+                "display_name": "Proposer's Target RA",
+                "description": "Target right ascension as given in the phase 2 proposal, with conversion to units of degrees.",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "degrees",
+                "group": "Target information",
+                "fits_keyword": "PROP_RA"
+            },
+            {
+                "parameter_name": "prop_dec",
+                "display_name": "Proposer's Target Dec",
+                "description": "Target declination as given in the phase 2 proposal, with conversion to units of degrees.",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "degrees",
+                "group": "Target information",
+                "fits_keyword": "PROP_DEC"
+            },
+            {
+                "parameter_name": "srctyapt",
+                "display_name": "APT Source Type",
+                "description": "This keyword is a user input value from the APT that advises the Calibration Pipeline software if spectroscopy data should be processed as a point source or an extended source. Possible values are POINT, EXTENDED, and UNKNOWN.",
+                "example": "POINT",
+                "datatype": "string",
+                "units": "",
+                "group": "Target information",
+                "fits_keyword": "SRCTYAPT"
+            }
+        ],
+        "Instrument configuration information": [
+            {
+                "parameter_name": "instrume",
+                "display_name": "Instrument",
+                "description": "Identifies the instrument used to acquire the data. The options are: NIRCAM, NIRSPEC, MIRI, NIRISS, or FGS.",
+                "example": "NIRCAM",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "INSTRUME"
+            },
+            {
+                "parameter_name": "detector",
+                "display_name": "Detector",
+                "description": "Name of SCA detector used to acquire the data (APID to detector name map configured in S&OC Project Reference Database (S&OC PRD))",
+                "example": "NRCA1",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "DETECTOR"
+            },
+            {
+                "parameter_name": "lamp",
+                "display_name": "Lamp State",
+                "description": "The LAMP keyword lists the internal lamp state for all science instruments. ",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "LAMP"
+            },
+            {
+                "parameter_name": "module",
+                "display_name": "Module",
+                "description": "Identifies the NIRCam module that was used (A, B or MULTIPLE).",
+                "example": "A",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "MODULE"
+            },
+            {
+                "parameter_name": "cccstate",
+                "display_name": "Contanimation Control Cover State",
+                "description": "Identifies the MIRI contamination control cover state: open, closed, locked",
+                "example": "OPEN",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "CCCSTATE"
+            },
+            {
+                "parameter_name": "mirngrps",
+                "display_name": "Flight System Frame Num",
+                "description": "MIRI flight system number of groups",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "MIRNGRPS"
+            },
+            {
+                "parameter_name": "mirnfrms",
+                "display_name": "Flight System Group Num",
+                "description": "MIRI flight system number of frames",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "MIRNFRMS"
+            },
+            {
+                "parameter_name": "coronmsk",
+                "display_name": "Coronograph Mask",
+                "description": "MIRI coronagraph mask being used.",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "CORONMSK"
+            },
+            {
+                "parameter_name": "detmode",
+                "display_name": "Detector Mode",
+                "description": "Detector mode indicator. The 4 possible values are: FLUSH_MODE, TEST_PATTERN, CLOCKING and EXPOSURE.  FLUSH_MODE: continuos destructive read of the detector.  TEST_PATTERN: Test pattern generated by the SCE.  CLOCKING: Detector is clocked but not readout. EXPOSURE: Detector readout mode. Nominal value.",
+                "example": "EXPOSURE",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "DETMODE"
+            },
+            {
+                "parameter_name": "cmd_tsel",
+                "display_name": "Command Test Pattern",
+                "description": "Test patterns generated by the SCE. There are four different options.  COLUMNS: Each column has a constant value. Value per channel increments from 1 to 258 across detector frame.  ROWS: Each row has a constant value. Value increments from 1 to 1024 up the detector frame.  FRAMES: All pixels in a frame have a value corresponding to the countdown from the number of frames (e.g. all pixels in the first frame of a 10 frames commanded exposure will have the value 10).  ALL: Detector channel 1: column count. Channel 2: row count. Channel 3: frame count. Channel 4: Intregration count. Reference output values are zero.",
+                "example": "ALL",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "CMD_TSEL"
+            },
+            {
+                "parameter_name": "channel",
+                "display_name": "Channel",
+                "description": "Identifies which channels (1,2,3,4) of IFU data are contained in an exposure. For exposures on the MIRIFUSHORT detector, CHANNEL will indicate that data from both channels 1 and 2 are present with a value of '12'. Similarly, for the MIRIFULONG detector, CHANNEL will be '34' to indicate that data from channels 3 and 4 are present. ",
+                "example": "12",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "CHANNEL"
+            },
+            {
+                "parameter_name": "band",
+                "display_name": "Wavelength Band",
+                "description": "The entire wavelength range of the MIRI MRS is not observable in a single exposure and therefore a particular wavelength range, or sub-band, must be selected for each exposure. Three sub-band settings are available: SHORT, MEDIUM, and LONG. The selected bands are realized by changing the positions of the dichroic/grating wheel assemblies that are in the IFU optical paths. Each of the 2 wheel assemblies supplies light to 2 of the 4 IFU channels: wheel 1 supplies channels 1 and 4, while wheel 2 supplies channels 2 and 3. The light from channels 1 and 2 fall on the first MRS detector, and the light from channels 3 and 4 fall on the second MRS detector. Under normal science operations the two grating wheel assemblies will always be positioned to the same wavelength sub-band, in which case the value of this keyword will contain a single value of either SHORT, MEDIUM, or LONG. It is possible, however, for engineering modes to intentionally set the two wheels to different positions. In these cases the keyword value will contain the two unique values, such as SHORT-LONG or LONG-MEDIUM.",
+                "example": "LONG",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "BAND"
+            },
+            {
+                "parameter_name": "opmode",
+                "display_name": "Lamp Mode",
+                "description": "This keyword records the lamp Operating Mode selected by a user in the APT NIRSpec Internal Lamp observing template and is used to indicate how the exposures are to be processed. Possible values are MSASPEC, IFU, IMAGE, FIXEDSLIT, BRIGHTOBJ, GRATING-ONLY, and NONE.",
+                "example": "IFU",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "OPMODE"
+            },
+            {
+                "parameter_name": "filter",
+                "display_name": "Filter",
+                "description": "Identifies the MIRI filter element that was used. The imagers only moving part is an 18 position filter wheel. Filter positions are allocated as follows: 10 filters for imaging, 4 filter and diaphragm combinations for the coronagraphy, 1 neutral density filter, 1 ZnS-Ge double prism for the LRS mode, 1 opaque position for darks and 1 for a lens for ground test purposes.",
+                "example": "P750L",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "FILTER"
+            },
+            {
+                "parameter_name": "grating",
+                "display_name": "Grating",
+                "description": "Identifies the NIRSpec grating wheel assembly element was used.",
+                "example": "G140M",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "GRATING"
+            },
+            {
+                "parameter_name": "pupil",
+                "display_name": "Pupil Name",
+                "description": "Identifies the element of the pupil wheel that was in the optical path for the exposure. Each channel (short, long) of each NIRCam module (A, B) is equipped with a pupil wheel containing a mixture of bandpass filters, coronagraphic pupils, weak lenses, grisms, pinholes, and a flatfield/dark element. Each pupil wheel has 11 elements and 1 clear position.",
+                "example": "F470N",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "PUPIL"
+            },
+            {
+                "parameter_name": "pilin",
+                "display_name": "Pupil Imaging Lens",
+                "description": "Identifies if a pupil imaging lens is to be used (T or F).",
+                "example": "T",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "PILIN"
+            },
+            {
+                "parameter_name": "focuspos",
+                "display_name": "Focus Position",
+                "description": "Identifies the position of the FGS focus mechanism in millimeters (-4.0 to 4.0)",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "millimeters",
+                "group": "Instrument configuration information",
+                "fits_keyword": "FOCUSPOS"
+            },
+            {
+                "parameter_name": "fwcpos",
+                "display_name": "Filter Wheel Position",
+                "description": "The FWCPOS keyword gives the encoder-based position of the NIRISS filter wheel during an exposure.",
+                "example": "315.82822",
+                "datatype": "float",
+                "units": "millimeters",
+                "group": "Instrument configuration information",
+                "fits_keyword": "FWCPOS"
+            },
+            {
+                "parameter_name": "pwcpos",
+                "display_name": "Pupil Wheel Position",
+                "description": "The PWCPOS keyword gives the encoder-based position of the NIRISS pupil wheel during an exposure.",
+                "example": "315.82822",
+                "datatype": "float",
+                "units": "millimeters",
+                "group": "Instrument configuration information",
+                "fits_keyword": "PWCPOS"
+            },
+            {
+                "parameter_name": "gwa_xtil",
+                "display_name": "Grating Wheel Tilt X",
+                "description": "Grating wheel tilt sensor value GWA_X_TILT_AVGED, corrected for sensor supply voltage offsets and averaged over multiple samples. In the instrument/wheel-centric reference frame this is the angle ALONG the X axis, while in the NIRSpec instrument model (used to define the WCS of the data) this is the angle AROUND the X axis, and hence is equivalent to the angle along the Y axis.",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "TBD",
+                "group": "Instrument configuration information",
+                "fits_keyword": "GWA_XTIL"
+            },
+            {
+                "parameter_name": "gwa_ytil",
+                "display_name": "Grating Wheel Tilt Y",
+                "description": "Grating wheel tilt sensor value GWA_Y_TILT_AVGED, corrected for sensor supply voltage offsets and averaged over multiple samples. In the instrument/wheel-centric reference frame this is the angle ALONG the Y axis, while in the NIRSpec instrument model (used to define the WCS of the data) this is the angle AROUND the Y axis, and hence is equivalent to the angle along the X axis.",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "TBD",
+                "group": "Instrument configuration information",
+                "fits_keyword": "GWA_YTIL"
+            },
+            {
+                "parameter_name": "gwa_xp_v",
+                "display_name": "Grating Wheel X Pos. Sensor",
+                "description": "Grating wheel X-position tilt sensor calibrated value.",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "TBD",
+                "group": "Instrument configuration information",
+                "fits_keyword": "GWA_XP_V"
+            },
+            {
+                "parameter_name": "gwa_yp_v",
+                "display_name": "Grating Wheel Y Pos. Sensor",
+                "description": "Grating wheel Y-position tilt sensor calibrated value.",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "TBD",
+                "group": "Instrument configuration information",
+                "fits_keyword": "GWA_YP_V"
+            },
+            {
+                "parameter_name": "gwa_pxav",
+                "display_name": "Grating Wheel REC X Pos. Sensor",
+                "description": "Grating wheel REC-averaged and calibrated X-position tilt sensor value.",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "TBD",
+                "group": "Instrument configuration information",
+                "fits_keyword": "GWA_PXAV"
+            },
+            {
+                "parameter_name": "gwa_pyav",
+                "display_name": "Grating Wheel REC Y Pos. Sensor",
+                "description": "Grating wheel REC-averaged and calibrated Y-position tilt sensor value.",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "TBD",
+                "group": "Instrument configuration information",
+                "fits_keyword": "GWA_PYAV"
+            },
+            {
+                "parameter_name": "gwa_tilt",
+                "display_name": "Grating Wheel Temperature",
+                "description": "Grating wheel temperature sensor calibrated physical value.",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "TBD",
+                "group": "Instrument configuration information",
+                "fits_keyword": "GWA_TILT"
+            },
+            {
+                "parameter_name": "nrs_norm",
+                "display_name": "Number of Normal Pixels",
+                "description": "The number of normal pixels included in each block of normal+reference pixels in an image using the NIRSpec IRS2 readout scheme",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "NRS_NORM"
+            },
+            {
+                "parameter_name": "nrs_ref",
+                "display_name": "Number of Ref Pixels",
+                "description": "The number of interleaved reference pixels included in each block of normal+reference pixels in an image using the NIRSpec IRS2 readout scheme.",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "NRS_REF"
+            },
+            {
+                "parameter_name": "msastate",
+                "display_name": "MSA State",
+                "description": "Identifies the state of the NIRSpec MSA: all open, all closed, or configured. The MSA configuration can be found in the MSA metadata file, which is specified by the MSAMETFL keyword value.",
+                "example": "ALLOPEN",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "MSASTATE"
+            },
+            {
+                "parameter_name": "msametfl",
+                "display_name": "MSA Metadata File",
+                "description": "NIRSpec MSA metadata file name.  Values related to MSA configuration will be pulled from PPS_DB into this file for use in the pipeline.",
+                "example": "jw95065006001_01_msa.fits",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "MSAMETFL"
+            },
+            {
+                "parameter_name": "msametid",
+                "display_name": "MSA Metadata ID",
+                "description": "Unique identifier within a visit to the collection of information (nirspec_msa_metadata) about how a MSA configuration was used at a particular pointing.",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "MSAMETID"
+            },
+            {
+                "parameter_name": "msaconid",
+                "display_name": "MSA Config ID",
+                "description": "Unique identifier of all the MSA configurations (nirspec_msa_config) within a visit.",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "MSACONID"
+            },
+            {
+                "parameter_name": "preimage",
+                "display_name": "PreImage ID",
+                "description": "Name of the reference image that was used to measure position for this source.",
+                "example": ["95065001_000", "NOT_REQUIRED"],
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "PREIMAGE"
+            },
+            {
+                "parameter_name": "is_imprt",
+                "display_name": "Is Imprint",
+                "description": "Identifies when an exposure is flagged as a leakcal or imprint exposure. This information is needed by calibration.",
+                "example": "",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "IS_IMPRT"
+            },
+            {
+                "parameter_name": "fxd_slit",
+                "display_name": "Aperture Name",
+                "description": "Identifies the NIRSpec fixed slit aperture to be used. The FXD_SLIT keyword value will be one of the five fixed slits for single-object spectroscopy (S200A1, S200A2, S200B1, S400A1, S1600A1).",
+                "example": "S200A1",
+                "datatype": "string",
+                "units": "",
+                "group": "Instrument configuration information",
+                "fits_keyword": "FXD_SLIT"
+            }
+        ],
+        "Exposure parameters": [
+            {
+                "parameter_name": "effexptm",
+                "display_name": "Effective Exposure Time",
+                "description": "Effective exposure time, corrected for dead time and lost time (seconds).  NOTE: This keyword is present for backward compatibility with ground system software. Where possible, use the FITS Standard keyword XPOSURE for this quantity.",
+                "example": "21.474",
+                "datatype": "float",
+                "units": "seconds",
+                "group": "Exposure parameters",
+                "fits_keyword": "EFFEXPTM"
+            },
+            {
+                "parameter_name": "duration",
+                "display_name": "Total Exposure Duration",
+                "description": "Total duration of exposure. The integration time multiplied by the number of integrations (seconds).  NOTE: This keyword is present for backward compatibility with ground system software. Where possible, use the FITS Standard keyword TELAPSE for this quantity.",
+                "example": "3999.632",
+                "datatype": "float",
+                "units": "seconds",
+                "group": "Exposure parameters",
+                "fits_keyword": "DURATION"
+            },
+            {
+                "parameter_name": "gainfact",
+                "display_name": "Gain Scale Factor",
+                "description": "The data scaling factor, expressed as a ratio, between exposures obtained with gain=2 and the nominal gain=1 setting.",
+                "example": "1.9",
+                "datatype": "float",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "GAINFACT"
+            },
+            {
+                "parameter_name": "sctarate",
+                "display_name": "Spacecraft Clock Adjustment Rate",
+                "description": "Spacecraft clock time adjustment rate as derived from offset values between the UTC spacecraft time and ground time. A value of zero indicates that a spacecraft clock time adjustment was not in progress during the exposure.",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "milliseconds/second",
+                "group": "Exposure parameters",
+                "fits_keyword": "SCTARATE"
+            },
+            {
+                "parameter_name": "expcount",
+                "display_name": "Exposure Counts",
+                "description": "The EXPCOUNT keyword will be used to count the number of exposures in a visit. The value for the EXPOSURE keyword is intially extracted from the image header in the science telemetry and is reset for each new activity within a visit. Science Data Processing code (SDP) determines a monotonically increasing exposure count within a visit, and capture that number in the EXPCOUNT keyword value. This exposure count will reflect the order in which the exposures were executed.",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "EXPCOUNT"
+            },
+            {
+                "parameter_name": "expripar",
+                "display_name": "Prime or Parallel Exp.",
+                "description": "Identifies the exposure as PRIME, PARALLEL_COORDINATED (same program as the PRIME), or PARALLEL_PURE (different program than the PRIME).",
+                "example": "PRIME",
+                "datatype": "string",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "EXPRIPAR"
+            },
+            {
+                "parameter_name": "expstart",
+                "display_name": "Exposure Start MJD",
+                "description": "Exposure start time (Modified Julian Date).  NOTE: This keyword is present for backward compatibility with ground system software. Where possible, use the FITS Standard keyword MJD-BEG for this quantity.",
+                "example": "58827.74816625174",
+                "datatype": "float",
+                "units": "days",
+                "group": "Exposure parameters",
+                "fits_keyword": "EXPSTART"
+            },
+            {
+                "parameter_name": "expmid",
+                "display_name": "Expsorue Midpoint MJD",
+                "description": "Exposure mid time (Modified Julian Date).  NOTE: This keyword is present for backward compatibility with ground system software. Where possible, use the FITS Standard keyword MJD-AVG for this quantity.",
+                "example": "58827.74847692216",
+                "datatype": "float",
+                "units": "days",
+                "group": "Exposure parameters",
+                "fits_keyword": "EXPMID"
+            },
+            {
+                "parameter_name": "expend",
+                "display_name": "Exposure End MJD",
+                "description": "Time of the last data readout within this exposure (Modified Julian Date).  NOTE: This keyword is present for backward compatibility with ground system software. Where possible, use the FITS Standard keyword MJD-END for this quantity.",
+                "example": "58827.74878759259",
+                "datatype": "float",
+                "units": "days",
+                "group": "Exposure parameters",
+                "fits_keyword": "EXPEND"
+            },
+            {
+                "parameter_name": "expsteng",
+                "display_name": "Engineering Exp. Start Time",
+                "description": "UTC exposure start time as calcualted from values reported in the engineering data stream (format YYYY-MM-DDThh:mm:ss.sss).",
+                "example": "2015-01-01T12:01:01.001",
+                "datatype": "string",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "EXPSTENG"
+            },
+            {
+                "parameter_name": "expsteng_mjd",
+                "display_name": "Engineering Exp. Start MJD",
+                "description": "Engineering exposure time (expsteng) in MJD format",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Exposure parameters",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "osf_file",
+                "display_name": "Observatory Status File",
+                "description": "Observatory Status File name containing the CompletedExposure row for this exposure.",
+                "example": "2016018T20545400P_osf.xml",
+                "datatype": "string",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "OSF_FILE"
+            },
+            {
+                "parameter_name": "exp_type",
+                "display_name": "Exposure Type",
+                "description": "Exposure type is used by DMS to direct Science Data Processing code (SDP) and calibration, as well as provide metadata for archive searches. For a given template the EXP_TYPE keyword value is obtained for each exposure from the EXPOSURE_TYPE exposure-level parameter in the Observatory Status File (OSF). In a few cases, additional information is required to set the value for the EXP_TYPE keyword.",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "EXP_TYPE"
+            },
+            {
+                "parameter_name": "readpatt",
+                "display_name": "Readout Pattern",
+                "description": "The readout pattern (READPATT) name designates a pre-defined combination of NFRAMES, GROUPGAP, and NRESETS that was used for the exposure. Each unique combination of these parameters determines not only the timing of detector readouts and resets during an exposure, but also the cadence of the resulting data frames that are downlinked from the telescope.",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "READPATT"
+            },
+            {
+                "parameter_name": "nints",
+                "display_name": "Number of Integrations",
+                "description": "Number of integrations within the exposure. An exposure consists of one or more integrations, and an integration contains one or more groups. Each integration within an exposure is required to have the same number of groups. For NINTS of one , the count rate image produced in the level 2a data product is single two-dimensional data array contained in FITS science image extension. For NINTS greater than one, a second level 2a product will be generated with a separate count rate image for each integration within the exposure.",
+                "example": "0",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "NINTS"
+            },
+            {
+                "parameter_name": "exsegtot",
+                "display_name": "Total Segments",
+                "description": "The total number of segments in a single exposure of a Time Series Observation.",
+                "example": "3",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "EXSEGTOT"
+            },
+            {
+                "parameter_name": "exsegnum",
+                "display_name": "Sequential Segments",
+                "description": "The sequential segment number in a single exposure of a Time Series Observation.",
+                "example": "3",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "EXSEGNUM"
+            },
+            {
+                "parameter_name": "intstart",
+                "display_name": "Starting Integration",
+                "description": "For segmented exposure products, this keyword gives the number of the first integration contained within the segment.",
+                "example": "1042",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "INTSTART"
+            },
+            {
+                "parameter_name": "intend",
+                "display_name": "Ending Integration",
+                "description": "For segmented exposure products, this keyword gives the number of the last integration contained within the segment.",
+                "example": "1042",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "INTEND"
+            },
+            {
+                "parameter_name": "ngroups",
+                "display_name": "Number of Groups",
+                "description": "Number of groups in integration. Each integration within an exposure is required to have the same number of groups. The total number of groups in an exposure is determined by NGROUPS * NINTS. One exception to this is for instrument MIRI with readout pattern FASTGRPAVG, where the instrument flight settings are inconsistent with other modes. In this case NGROUPS per integration is calculated as NGROUPS = NGROUPS / NFRAMES, where NFRAMES=FRMDIVSR.",
+                "example": "0",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "NGROUPS"
+            },
+            {
+                "parameter_name": "nframes",
+                "display_name": "Number of Frames",
+                "description": "Number of frames in a group",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "NFRAMES"
+            },
+            {
+                "parameter_name": "groupgap",
+                "display_name": "Frames Dropped (Mid Groups)",
+                "description": "Number of frames skipped between groups",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "GROUPGAP"
+            },
+            {
+                "parameter_name": "nsamples",
+                "display_name": "Number of A/D Samples",
+                "description": "Number of A/D samples per read of pixel. One in every mode but MIRI SLOW which has a value of ten",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "NSAMPLES"
+            },
+            {
+                "parameter_name": "tsample",
+                "display_name": "Time Between Samples",
+                "description": "Delta time between samples in units of microsec.",
+                "example": "",
+                "datatype": "float",
+                "units": "microseconds",
+                "group": "Exposure parameters",
+                "fits_keyword": "TSAMPLE"
+            },
+            {
+                "parameter_name": "tframe",
+                "display_name": "Time Between Frames",
+                "description": "Time between start of successive frames in units of seconds.",
+                "example": "2.77504",
+                "datatype": "float",
+                "units": "seconds",
+                "group": "Exposure parameters",
+                "fits_keyword": "TFRAME"
+            },
+            {
+                "parameter_name": "tgroup",
+                "display_name": "Intra-Group Time",
+                "description": "Time between start of successive groups in units of seconds.",
+                "example": "2.77504",
+                "datatype": "float",
+                "units": "seconds",
+                "group": "Exposure parameters",
+                "fits_keyword": "TGROUP"
+            },
+            {
+                "parameter_name": "effinttm",
+                "display_name": "Effective Integration Time",
+                "description": "Effective integration Time in units of seconds.",
+                "example": "",
+                "datatype": "float",
+                "units": "seconds",
+                "group": "Exposure parameters",
+                "fits_keyword": "EFFINTTM"
+            },
+            {
+                "parameter_name": "nrststrt",
+                "display_name": "Number of Resets (Pre Exp)",
+                "description": "Number of resets at start of exposure",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "NRSTSTRT"
+            },
+            {
+                "parameter_name": "nresets",
+                "display_name": "Number of Resets (Mid Int)",
+                "description": "Number of resets that separate integrations within an exposure",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "NRESETS"
+            },
+            {
+                "parameter_name": "zerofram",
+                "display_name": "Zero Frame",
+                "description": "T if zero frame was read separately. The first frame of an integration may be read out separately, even if that frame is also averaged into the first group of the integration. If there is a zero frame readout, there will be one for each integration. The zero frame will be stored in a data array in a separate fits extension.",
+                "example": "F",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "ZEROFRAM"
+            },
+            {
+                "parameter_name": "dataprob",
+                "display_name": "Data Problem",
+                "description": "T if science telemetry indicated any problems with the data.",
+                "example": "F",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "DATAPROB"
+            },
+            {
+                "parameter_name": "sca_num",
+                "display_name": "Sensor Chip Assembly Number",
+                "description": "SCA number. Possible values are 1-18 ",
+                "example": "18",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "SCA_NUM"
+            },
+            {
+                "parameter_name": "datamode",
+                "display_name": "Data Mode",
+                "description": "Post-processing method used in FPAP (Focal Plane Array Processor); maps to readout pattern. Possible values are 0-86. ",
+                "example": "0",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "DATAMODE"
+            },
+            {
+                "parameter_name": "frmdivsr",
+                "display_name": "Frame Divisor",
+                "description": "The FRMDIVSR keyword records the value of the frame divisor used on-board when the flight software averages multiple frames (detector readouts) into a single group. The on-board process works by first summing the data from NFRAMES readouts and then dividing by the frame divisor to form an average. The frame divisor value is equal to NFRAMES for most readout patterns, but not always. When they are not equal, the frame-averaged data values end up with a different scaling than the original data values.",
+                "example": "5",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "FRMDIVSR"
+            },
+            {
+                "parameter_name": "drpfrms1",
+                "display_name": "Frames Dropped (Pre Int.)",
+                "description": "Number of frames dropped prior to first integration",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "DRPFRMS1"
+            },
+            {
+                "parameter_name": "drpfrms3",
+                "display_name": "Frames Dropped (Mid Int.)",
+                "description": "Number of frames dropped between integrations",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "DRPFRMS3"
+            },
+            {
+                "parameter_name": "noutputs",
+                "display_name": "Number of Outputs",
+                "description": "The keyword NOUTPUTS indicates the number of detector amplifier outputs that were used for reading the detector.  The value can be 1, 4, or 5 for various modes of the NIRCam, NIRISS, and NIRSpec instruments.",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Exposure parameters",
+                "fits_keyword": "NOUTPUTS"
+            }
+        ],
+        "Association parameters": [
+            {
+                "parameter_name": "asnpool",
+                "display_name": "Association Pool",
+                "description": "The name of the association pool file used as input to the association generator to create the association table that resulted in this product",
+                "example": "jw12345_20140626T103556_pool.csv",
+                "datatype": "string",
+                "units": "",
+                "group": "Association parameters",
+                "fits_keyword": "ASNPOOL"
+            },
+            {
+                "parameter_name": "asntable",
+                "display_name": "Association Table",
+                "description": "The name of the association table from which this product was created",
+                "example": "jw84500-001_20150820T170446_spectrum_001_asn.json",
+                "datatype": "string",
+                "units": "",
+                "group": "Association parameters",
+                "fits_keyword": "ASNTABLE"
+            }
+        ],
+        "Subarray parameters": [
+            {
+                "parameter_name": "subarray",
+                "display_name": "Subarray Used",
+                "description": "Subarray name is a stringing of up to 9 characters. If no subarray is specified (SUBARRAY equal to none), the values for X and Y start and size will reflect the full frame image (e.g., for NIRCAM: SUBSTRT1 of 1, SUBSTRT2 of 1, SUBSIZE1 of 2048, and SUBSIZE2 of 2048).",
+                "example": "FULL",
+                "datatype": "string",
+                "units": "",
+                "group": "Subarray parameters",
+                "fits_keyword": "SUBARRAY"
+            },
+            {
+                "parameter_name": "substrt1",
+                "display_name": "Starting Pixel in Axis 1",
+                "description": "Starting pixel number in the full science frame axis 1 direction",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Subarray parameters",
+                "fits_keyword": "SUBSTRT1"
+            },
+            {
+                "parameter_name": "substrt2",
+                "display_name": "Starting Pixel in Axis 2",
+                "description": "Starting pixel number in the full science frame axis 2 direction",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Subarray parameters",
+                "fits_keyword": "SUBSTRT2"
+            },
+            {
+                "parameter_name": "subsize1",
+                "display_name": "Pixel Number in Axis 1",
+                "description": "number of pixels in the full science frame axis 1 direction",
+                "example": "2048",
+                "datatype": "integer",
+                "units": "",
+                "group": "Subarray parameters",
+                "fits_keyword": "SUBSIZE1"
+            },
+            {
+                "parameter_name": "subsize2",
+                "display_name": "Pixel Number in Axis 2",
+                "description": "number of pixels in the full science frame axis 2 direction",
+                "example": "2048",
+                "datatype": "integer",
+                "units": "pixels",
+                "group": "Subarray parameters",
+                "fits_keyword": "SUBSIZE2"
+            },
+            {
+                "parameter_name": "fastaxis",
+                "display_name": "Fast Readout Axis",
+                "description": "Indicates the axis and direction of fast readout (values = 1, 2, -1, -2). The digit value is set by whether axis 1 or 2 is the fast/slow readout axis. The sign indicates the direction of the readout with respect to the science frame.",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Subarray parameters",
+                "fits_keyword": "FASTAXIS"
+            },
+            {
+                "parameter_name": "slowaxis",
+                "display_name": "Slow Readout Axis",
+                "description": "Indicates the axis and direction of slow readout (values = 1, 2, -1, -2). The digit value is set by whether axis 1 or 2 is the fast/slow readout axis. The sign indicates the direction of the readout with respect to the science frame.",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Subarray parameters",
+                "fits_keyword": "SLOWAXIS"
+            }
+        ],
+        "Dither information": [
+            {
+                "parameter_name": "numdthpt",
+                "display_name": "Total Number Dither Points",
+                "description": "Total number of points in entire dither pattern",
+                "example": "3",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "NUMDTHPT"
+            },
+            {
+                "parameter_name": "patt_num",
+                "display_name": "Dither Position Number",
+                "description": "Position number within dither pattern",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "PATT_NUM"
+            },
+            {
+                "parameter_name": "xoffset",
+                "display_name": "X Offset",
+                "description": "X offset from pattern starting position in SI ideal coordinate frame (arcsec): -84.476 to 87.276",
+                "example": "2.000",
+                "datatype": "float",
+                "units": "arc-seconds",
+                "group": "Dither information",
+                "fits_keyword": "XOFFSET"
+            },
+            {
+                "parameter_name": "yoffset",
+                "display_name": "Y Offset",
+                "description": "Y offset from pattern starting position in SI ideal coordinate frame (arcsec): -61.480 to 62.260",
+                "example": "2.000",
+                "datatype": "float",
+                "units": "arc-seconds",
+                "group": "Dither information",
+                "fits_keyword": "YOFFSET"
+            },
+            {
+                "parameter_name": "patttype",
+                "display_name": "Dither Pattern Type",
+                "description": "This value can be either a NIRCam primary dither pattern type (included when an FGS External Calibration dither is in parallel with NIRCam Engineering Imaging with possible values: FULL, FULLBOX, INTRAMODULE, INTRAMODULEBOX, INTRAMODULEX, INTRASCA, SUBARRAY_DITHER, WFSC, NONE) or a NIRISS primary dither pattern type (included when an FGS External Calibration dither is in parallel with NIRISS External Calibration with possible values: AMI, IMAGING, MIMF, WFSS, NONE).",
+                "example": "FULL",
+                "datatype": "string",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "PATTTYPE"
+            },
+            {
+                "parameter_name": "pridtpts",
+                "display_name": "Num. Primary Dither Points",
+                "description": "Number of points in FGS primary dither pattern. When FGS is the only instrument, possible values are: 1-25. When FGS External Calibration is in parallel with NIRCam Engineering Imaging, possible values are: 2-17, 21, 25, 27, 36, 45. When FGS External Calibration is in parallel with NIRISS External Calibration, possible values are: 1, 2, 3, 4.",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "PRIDTPTS"
+            },
+            {
+                "parameter_name": "subpxpts",
+                "display_name": "Num. Subpixel Dither Points",
+                "description": "Number of points in FGS subpixel dither pattern. When FGS is the only instrument, possible values are: 1, 2, 4. When FGS External Calibration is in parallel with NIRCam Engineering Imaging, possible values are: 1-9, 12, 16, 20, 24, 30, 36, 48, 64. When FGS External Calibration is in parallel with NIRISS External Calibration, possible values are: 1, 5, 9, 25.",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "SUBPXPTS"
+            },
+            {
+                "parameter_name": "nrimdtpt",
+                "display_name": "Number of Dither Points",
+                "description": "NIRISS direct image dither number of points, included only when an FGS External Calibration dither is in parallel with NIRISS External Calibration. Possible values are: 1, 2, 3, 4, 6, 8, 12, 16.",
+                "example": "2",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "NRIMDTPT"
+            },
+            {
+                "parameter_name": "pattsize",
+                "display_name": "Dither Pattern Size",
+                "description": "NIRCam or NIRISS dither pattern size that indicates the dither point distribution for the INTRASCA pattern type. It is included when an FGS External Calibration dither is in parallel with either NIRCam Engineering Imaging (and PATTTYPE=INTRASCA) or NIRISS External Calibration. Possible values are NONE, SMALL, MEDIUM, LARGE.",
+                "example": "SMALL",
+                "datatype": "string",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "PATTSIZE"
+            },
+            {
+                "parameter_name": "pridtype",
+                "display_name": "Primary Dither Type",
+                "description": "NIRCam primary dither specification with number of points and possible point packing, included when an FGS External Calibration dither is in parallel with NIRCam Engineering Imaging. Possible values are: 3TIGHT, 3, 6, 9, 15, 21, 27, 36, 45 (FULL); 2TIGHTGAPS, 3TIGHTGAPS, 4TIGHT, 4, 5TIGHT, 6TIGHT, 6, 8NIRSPEC (FULLBOX); 3, 4, 6, 8, 12, 16 (INTRAMODULE); 2-16 (INTRAMODULEBOX, INTRAMODULEX); 2, 3, 4, 5, 7, 9, 13, 17, 25 (INTRASCA); 2, 3, 4 (SUBARRAY_DITHER); 1, 2PLUS, 2MINUS (WFSC)",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "PRIDTYPE"
+            },
+            {
+                "parameter_name": "subpxpat",
+                "display_name": "Subpixel Dither Pattern",
+                "description": "NIRCam subpixel dither pattern type, included when an FGS External Calibration dither is in parallel with NIRCam Engineering Imaging. Possible values are STANDARD, SMALL-GRID-DITHER, NONE",
+                "example": "STANDARD",
+                "datatype": "string",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "SUBPXPAT"
+            },
+            {
+                "parameter_name": "smgrdpat",
+                "display_name": "Number of Small Grid Dithers",
+                "description": "NIRCam name of the small grid dither pattern, included when an FGS External Calibration dither is in parallel with NIRCam Engineering Imaging. Possible values are 1-9, 5-POINT-BOX,  5-POINT-DIAMOND, 9-POINT-CIRCLE.",
+                "example": "5-POINT-DIAMOND",
+                "datatype": "string",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "SMGRDPAT"
+            },
+            {
+                "parameter_name": "pattstrt",
+                "display_name": "Pattern Start Point",
+                "description": "MIRI imaging starting point in the dither cycling pattern. Possible values are: 1-311.",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "PATTSTRT"
+            },
+            {
+                "parameter_name": "pattnpts",
+                "display_name": "Number of Dither Points",
+                "description": "MIRI imaging number of points in CYCLING dither pattern. Value must be >= 3.",
+                "example": "3",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "PATTNPTS"
+            },
+            {
+                "parameter_name": "numdsets",
+                "display_name": "Number Dither Points",
+                "description": "The total number of 4-point dither sets; 1-10 repeating sets can be executed. Applies only to the 4-POINT-SETS dither pattern type.",
+                "example": "3",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "NUMDSETS"
+            },
+            {
+                "parameter_name": "dithpnts",
+                "display_name": "Dither Points",
+                "description": "The sparse cycling dither pattern allows the observer to specify individual positions from the cycling lookup table using a list. The DITHPNTS keyword value records the specified list of points. Used for SPARSE-CYCLING only.",
+                "example": "[3,5,7,8,9,15,16,17,18,19]",
+                "datatype": "string",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "DITHPNTS"
+            },
+            {
+                "parameter_name": "nod_type",
+                "display_name": "NOD Pattern",
+                "description": "NIRSpec MSA nod pattern type. Possible values are: NONE, 2-SHUTTER-SLITLET, 3-SHUTTER-SLITLET, 5-SHUTTER-SLITLET, 5-SHUTTER-SLITLET-WITH-GAPs.",
+                "example": "3-Shutter-Slitlet",
+                "datatype": "string",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "NOD_TYPE"
+            },
+            {
+                "parameter_name": "mrsprchn",
+                "display_name": "MRS Channel",
+                "description": " The Medium Resolution Spectroscopy (MRS) channel for which the dither pattern is optimized.",
+                "example": "CHANNEL1",
+                "datatype": "string",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "MRSPRCHN"
+            },
+            {
+                "parameter_name": "dsetstrt",
+                "display_name": "Starting Dither Set",
+                "description": "The starting set number of the series of 4-point dither sets. 1-10 repeating sets can be executed. This field only applies to the 4-POINT-SETS dither pattern type.",
+                "example": "3",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "DSETSTRT"
+            },
+            {
+                "parameter_name": "dithopfr",
+                "display_name": "Dither Optimization",
+                "description": "Identifies the type of science for which the dither is optimized: point source or extended source. This field applies only to the 4-POINT-SETS pattern.",
+                "example": "EXTENDED-SOURCE",
+                "datatype": "string",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "DITHOPFR"
+            },
+            {
+                "parameter_name": "dithdirc",
+                "display_name": "Dither Direction",
+                "description": "The user-specified direction of dither pattern offsets to use. Can be POSITIVE or NEGATIVE. This field applies only to the 4-POINT-SETS pattern.",
+                "example": "POSITIVE",
+                "datatype": "string",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "DITHDIRC"
+            },
+            {
+                "parameter_name": "specnstp",
+                "display_name": "Number of Spectral Steps",
+                "description": "MIRI LRS number of steps in the spectral direction. Value must be >= 1.",
+                "example": "3",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "SPECNSTP"
+            },
+            {
+                "parameter_name": "specstep",
+                "display_name": "Spectral Step Size",
+                "description": "MIRI LRS distance between steps in the spectral direction (arcsec).",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "arcsec",
+                "group": "Dither information",
+                "fits_keyword": "SPECSTEP"
+            },
+            {
+                "parameter_name": "spcoffst",
+                "display_name": "Spectral Offset",
+                "description": "MIRI LRS spectral offset from pattern starting position (arcsec). Value must be >= 0.0.",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "arcsec",
+                "group": "Dither information",
+                "fits_keyword": "SPCOFFST"
+            },
+            {
+                "parameter_name": "spatnstp",
+                "display_name": "Number of Spatial Steps",
+                "description": "MIRI LRS number of steps in the spatial direction. Value must be >= 0.",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "SPATNSTP"
+            },
+            {
+                "parameter_name": "spatstep",
+                "display_name": "Spatial Step Size",
+                "description": "MIRI LRS distance between steps in the spatial direction (arcsec) - point source: -0.908, 0.908; extended target. Value must be >= 0.0.",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "arcsec",
+                "group": "Dither information",
+                "fits_keyword": "SPATSTEP"
+            },
+            {
+                "parameter_name": "sptoffst",
+                "display_name": "Spatial Offset",
+                "description": "MIRI LRS spatial offset from pattern starting position (arcsec). Value must be >= 0.0",
+                "example": "0.0",
+                "datatype": "float",
+                "units": "arcsec",
+                "group": "Dither information",
+                "fits_keyword": "SPTOFFST"
+            },
+            {
+                "parameter_name": "spec_num",
+                "display_name": "Spectral Step Position",
+                "description": "MIRI LRS position number within spectral steps. Value must be >= 1.",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "SPEC_NUM"
+            },
+            {
+                "parameter_name": "spat_num",
+                "display_name": "Spatial Step Position",
+                "description": "MIRI LRS position number within spatial steps. Value must be >= 1.",
+                "example": "1",
+                "datatype": "integer",
+                "units": "",
+                "group": "Dither information",
+                "fits_keyword": "SPAT_NUM"
+            }
+        ],
+        "NIRSPEC WFS&C engineering keywords information": [
+            {
+                "parameter_name": "rma_pos",
+                "display_name": "RMA Position",
+                "description": "NIRSpec Refocus Mechanism Assembly (RMA) latest recorded hall-position sensor value",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "NIRSPEC WFS&C engineering keywords information",
+                "fits_keyword": "RMA_POS"
+            },
+            {
+                "parameter_name": "fcsrlpos",
+                "display_name": "RMA Position",
+                "description": "NIRSpec Refocus Mechanism Assembly (RMA) relative position, in motor steps (-18400 to +18400). The offsets are from the current position.",
+                "example": "",
+                "datatype": "integer",
+                "units": "step",
+                "group": "NIRSPEC WFS&C engineering keywords information",
+                "fits_keyword": "FCSRLPOS"
+            }
+        ],
+        "Focus Adjust Mechanism parameters": [
+            {
+                "parameter_name": "fam_la1",
+                "display_name": "Steps Focus Actuator 1",
+                "description": "Measured position of the focus adjustment mechanism (FAM) primary sensor in steps of linear actuator 1.",
+                "example": "",
+                "datatype": "integer",
+                "units": "step",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FAM_LA1"
+            },
+            {
+                "parameter_name": "fastep1",
+                "display_name": "Requested Steps FA 1",
+                "description": "Requested focus actuator 1 starting steps per the exposure specification.",
+                "example": "",
+                "datatype": "integer",
+                "units": "step",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FASTEP1"
+            },
+            {
+                "parameter_name": "faunit1",
+                "display_name": "Units Focus Actuator 1",
+                "description": "Requested focus actuator 1 starting units per the exposure specification.",
+                "example": "",
+                "datatype": "float",
+                "units": "",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FAUNIT1"
+            },
+            {
+                "parameter_name": "faphase1",
+                "display_name": "Phase Focus Actuator 1",
+                "description": "Requested focus actuator 1 starting phase per the exposure specification.",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FAPHASE1"
+            },
+            {
+                "parameter_name": "fa1value",
+                "display_name": "Position Focus Actuator 1",
+                "description": "Requested focus actuator 1 absolute position value per the exposure specification.",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FA1VALUE"
+            },
+            {
+                "parameter_name": "fam_la2",
+                "display_name": "Steps FA 2",
+                "description": "Measured position of the focus adjustment mechanism (FAM) primary sensor in steps of linear actuator 2.",
+                "example": "",
+                "datatype": "integer",
+                "units": "step",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FAM_LA2"
+            },
+            {
+                "parameter_name": "fastep2",
+                "display_name": "Requested Steps FA 2",
+                "description": "Requested focus actuator 2 starting steps per the exposure specification.",
+                "example": "",
+                "datatype": "integer",
+                "units": "step",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FASTEP2"
+            },
+            {
+                "parameter_name": "faunit2",
+                "display_name": "Units FA 2",
+                "description": "Requested focus actuator 2 starting units per the exposure specification.",
+                "example": "",
+                "datatype": "float",
+                "units": "",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FAUNIT2"
+            },
+            {
+                "parameter_name": "faphase2",
+                "display_name": "Phase FA 2",
+                "description": "Requested focus actuator 2 starting phase per the exposure specification.",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FAPHASE2"
+            },
+            {
+                "parameter_name": "fa2value",
+                "display_name": "Position FA 2",
+                "description": "Requested focus actuator 2 absolute position value per the exposure specification.",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FA2VALUE"
+            },
+            {
+                "parameter_name": "fam_la3",
+                "display_name": "Steps FA 3",
+                "description": "Measured position of the focus adjustment mechanism (FAM) primary sensor in steps of linear actuator 3.",
+                "example": "",
+                "datatype": "integer",
+                "units": "step",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FAM_LA3"
+            },
+            {
+                "parameter_name": "fastep3",
+                "display_name": "Requested Steps FA 3",
+                "description": "Requested focus actuator 3 starting steps per the exposure specification.",
+                "example": "",
+                "datatype": "integer",
+                "units": "step",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FASTEP3"
+            },
+            {
+                "parameter_name": "faunit3",
+                "display_name": "Units FA 3",
+                "description": "Requested focus actuator 3 starting units per the exposure specification.",
+                "example": "",
+                "datatype": "float",
+                "units": "",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FAUNIT3"
+            },
+            {
+                "parameter_name": "faphase3",
+                "display_name": "Phase FA 3",
+                "description": "Requested focus actuator 3 starting phase per the exposure specification.",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FAPHASE3"
+            },
+            {
+                "parameter_name": "fa3value",
+                "display_name": "Position FA 3",
+                "description": "Requested focus actuator 3 absolute position value per the exposure specification.",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Focus Adjust Mechanism parameters",
+                "fits_keyword": "FA3VALUE"
+            }
+        ],
+        "Aperture information": [
+            {
+                "parameter_name": "apername",
+                "display_name": "Aperture Name",
+                "description": "The S&OC Project Reference Database (S&OC PRD) aperture used. The names for each JWST aperture are used to populate the APERNAME keyword based on engineering telemetry. <P>For NIRCam Time Series and Grism Time Series templates a subset of the NIRCam detectors will be read out.  The PPS database specifies a single aperture for each exposure that is used for telescope pointing.  For NIRCam multi-detector exposures, the PPS provided aperture name is mapped to detector specific apertures for identifying the best reference pixel from which to set the WCS parameters for the individual exposure/detector based FITS files.   Special mapping will need to be performed for the NIRCam Time Series and Grism Time Series templates. <P>NIRCam Time Series<TABLE BORDER COLS=3><TR><TH>Detector</TH><TH>Subarray</TH><TH>Aperture</TH></TR> <TR><TD>B1        </TD><TD>FULL   </TD><TD>NRCB1_FULLP  </TD></TR> <TR><TD>B5 (BLONG)</TD><TD>FULL   </TD><TD>NRCB5_FULLP  </TD></TR> <TR><TD>B1        </TD><TD>SUB400P</TD><TD>NRCB1_SUB400P</TD></TR> <TR><TD>B5 (BLONG)</TD><TD>SUB400P</TD><TD>NRCB5_SUB400P</TD></TR> <TR><TD>B1        </TD><TD>SUB160P</TD><TD>NRCB1_SUB160P</TD></TR> <TR><TD>B5 (BLONG)</TD><TD>SUB160P</TD><TD>NRCB5_SUB160P</TD></TR> <TR><TD>B1        </TD><TD>SUB64P </TD><TD>NRCB1_SUB64P </TD></TR> <TR><TD>B5 (BLONG)</TD><TD>SUB64P </TD><TD>NRCB5_SUB64P </TD></TR></TABLE> <P>NIRCam Grism Time Series <TABLE BORDER COLS=3> <TR><TH>Detector</TH><TH>Subarray</TH><TH>Aperture</TH> </TR> <TR><TD>A1</TD><TD>FULL       </TD><TD>NRCA1_GRISMTS   </TD></TR> <TR><TD>A1</TD><TD>SUBGRISM256</TD><TD>NRCA1_GRISMTS256</TD></TR> <TR><TD>A1</TD><TD>SUBGRISM128</TD><TD>NRCA1_GRISMTS128</TD></TR> <TR><TD>A1</TD><TD>SUBGRISM64 </TD><TD>NRCA1_GRISMTS64 </TD></TR> <TR><TD>A3</TD><TD>FULL       </TD><TD>NRCA3_GRISMTS   </TD></TR> <TR><TD>A3</TD><TD>SUBGRISM256</TD><TD>NRCA3_GRISMTS256</TD></TR> <TR><TD>A3</TD><TD>SUBGRISM128</TD><TD>NRCA3_GRISMTS128</TD></TR> <TR><TD>A3</TD><TD>SUBGRISM64 </TD><TD>NRCA3_GRISMTS64 </TD></TR></TABLE><P>NIRCam Grism Time Series - long wavelength, detector = A5<P><TABLE BORDER COLS=3> <TR><TH>Subarray</TH><TH>Filter</TH><TH>Aperture</TH> </TR> <TR><TD>FULL</TD><TD>F277W</TD><TD>NRCA5_GRISM_F277W</TD></TR><TR><TD>FULL</TD><TD>F322W2</TD><TD>NRCA5_GRISM_F322W2</TD></TR><TR><TD>FULL</TD><TD>F356W</TD><TD>NRCA5_GRISM_F356W</TD></TR> <TR><TD>FULL</TD><TD>F444W </TD><TD>NRCA5_GRISM_F444W</TD></TR><TR><TD>SUBGRISM256</TD><TD>F277W </TD><TD>NRCA5_GRISM256_F277W</TD></TR><TR><TD>SUBGRISM256</TD><TD>F322W2</TD><TD>NRCA5_GRISM256_F322W2</TD></TR><TR><TD>SUBGRISM256</TD><TD>F356W</TD><TD>NRCA5_GRISM256_F356W</TD></TR> <TR><TD>SUBGRISM256</TD><TD>F444W</TD><TD>NRCA5_GRISM256_F444W </TD></TR> <TR><TD>SUBGRISM128</TD><TD>F277W</TD><TD>NRCA5_GRISM128_F277W </TD></TR> <TR><TD>SUBGRISM128</TD><TD>F322W2</TD><TD>NRCA5_GRISM128_F322W2</TD></TR><TR><TD>SUBGRISM128</TD><TD>F356W</TD><TD>NRCA5_GRISM128_F356W</TD></TR> <TR><TD>SUBGRISM128</TD><TD>F444W </TD><TD>NRCA5_GRISM128_F444W </TD></TR></TABLE> ",
+                "example": "NRCALL_FULL",
+                "datatype": "string",
+                "units": "",
+                "group": "Aperture information",
+                "fits_keyword": "APERNAME"
+            },
+            {
+                "parameter_name": "pps_aper",
+                "display_name": "Original Aperture Name",
+                "description": "Holds the original aperture value supplied by PPS in the PPS_DB.exposures.AperName database field.",
+                "example": "NRS1_FULL",
+                "datatype": "string",
+                "units": "",
+                "group": "Aperture information",
+                "fits_keyword": "PPS_APER"
+            }
+        ],
+        "Time information": [
+            {
+                "parameter_name": "bartdelt",
+                "display_name": "Barycentric Time Delta",
+                "description": "Calculated Barycentric time correction from UTC in units of seconds.",
+                "example": "",
+                "datatype": "float",
+                "units": "seconds",
+                "group": "Time information",
+                "fits_keyword": "BARTDELT"
+            },
+            {
+                "parameter_name": "bstrtime",
+                "display_name": "Barycentric Exposure Start MJD",
+                "description": "Exposure start time using the UTC timescale, expressed as MJD, but with the barycentric time correction (from BARTDELT) applied.",
+                "example": "",
+                "datatype": "float",
+                "units": "days",
+                "group": "Time information",
+                "fits_keyword": "BSTRTIME"
+            },
+            {
+                "parameter_name": "bmidtime",
+                "display_name": "Barycentric Exposure Mid MJD",
+                "description": "Exposure mid time using the UTC timescale, expressed as MJD, but with the barycentric time correction (from BARTDELT) applied.",
+                "example": "",
+                "datatype": "float",
+                "units": "days",
+                "group": "Time information",
+                "fits_keyword": "BMIDTIME"
+            },
+            {
+                "parameter_name": "bendtime",
+                "display_name": "Barycentric Exposure End MJD",
+                "description": "Exposure end time using the UTC timescale, expressed as MJD, but with the barycentric time correction (from BARTDELT) applied.",
+                "example": "",
+                "datatype": "float",
+                "units": "days",
+                "group": "Time information",
+                "fits_keyword": "BENDTIME"
+            },
+            {
+                "parameter_name": "helidelt",
+                "display_name": "Heliocentric Time Delta",
+                "description": "Calculated Heliocentric time correction from UTC in units of seconds.",
+                "example": "",
+                "datatype": "float",
+                "units": "seconds",
+                "group": "Time information",
+                "fits_keyword": "HELIDELT"
+            },
+            {
+                "parameter_name": "hstrtime",
+                "display_name": "Heliocentric Exposure Start MJD",
+                "description": "Heliocentric exposure start time (Modified Julian Date)",
+                "example": "",
+                "datatype": "float",
+                "units": "days",
+                "group": "Time information",
+                "fits_keyword": "HSTRTIME"
+            },
+            {
+                "parameter_name": "hmidtime",
+                "display_name": "Heliocentric Exposure Mid MJD",
+                "description": "Heliocentric exposure mid time (Modified Julian Date)",
+                "example": "",
+                "datatype": "float",
+                "units": "days",
+                "group": "Time information",
+                "fits_keyword": "HMIDTIME"
+            },
+            {
+                "parameter_name": "hendtime",
+                "display_name": "Heliocentric Exposure End MJD",
+                "description": "Heliocentric exposure end time (Modified Julian Date)",
+                "example": "",
+                "datatype": "float",
+                "units": "days",
+                "group": "Time information",
+                "fits_keyword": "HENDTIME"
+            }
+        ],
+        "Reference file information": [
+            {
+                "parameter_name": "crds_ver",
+                "display_name": "CRDS Software Version",
+                "description": "Identifies the version of the CRDS client software that was used to select calibration reference files during calibration processing.",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Reference file information",
+                "fits_keyword": "CRDS_VER"
+            },
+            {
+                "parameter_name": "crds_ctx",
+                "display_name": "CRDS Context Version",
+                "description": "Identifies the version of the CRDS context (PMAP file) that was used to control the logic involved in selecting certain versions or instances of calibration reference files.",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "Reference file information",
+                "fits_keyword": "CRDS_CTX"
+            }
+        ],
+        "Resampling parameter information": [
+            {
+                "parameter_name": "texptime",
+                "display_name": "Total Exposure Time",
+                "description": "The total exposure time of all the individual pointings included in a resampled/combined product in units of seconds.",
+                "example": "1832.17",
+                "datatype": "float",
+                "units": "seconds",
+                "group": "Resampling parameter information",
+                "fits_keyword": "TEXPTIME"
+            },
+            {
+                "parameter_name": "tcatfile",
+                "display_name": "Tweakreg Catalog Filename",
+                "description": "The name of the catalog file generated and used by the calibration pipeline tweakreg step when performing image alignment.",
+                "example": "jw82600013001_02102_00001_nrca4_cat.ecsv",
+                "datatype": "string",
+                "units": "",
+                "group": "Resampling parameter information",
+                "fits_keyword": "TCATFILE"
+            },
+            {
+                "parameter_name": "scatfile",
+                "display_name": "Source Catalog Filename",
+                "description": "The name of the source catalog file generated by the calibration pipeline source_catalog step for this image.",
+                "example": "jw10002-o001_t002_nircam_f444w_cat.ecsv",
+                "datatype": "string",
+                "units": "",
+                "group": "Resampling parameter information",
+                "fits_keyword": "SCATFILE"
+            }
+        ],
+        "WCS parameters": [
+            {
+                "parameter_name": "s_region",
+                "display_name": "Sky Footprint",
+                "description": "&lt;s_region>           ::= [&lt;region>...]<br>&lt;region>             ::= &lt;circle> | &lt;polygon><br>&lt;circle>             ::= CIRCLE &lt;coordsys> &lt;coordpair> &lt;radius in decimal degrees><br>&lt;polygon>            ::= POLYGON &lt;coordsys> &lt;coordpair> &lt;coordpair> [&lt;coordpair> ...]<br>&lt;coordsys>           ::= ICRS<br>&lt;coordpair>          ::= &lt;decimal value for RA> &lt; decimal value for Declination>",
+                "example": "",
+                "datatype": "string",
+                "units": "",
+                "group": "WCS parameters",
+                "fits_keyword": "S_REGION"
+            }
+        ],
+        "Guide star information": [
+            {
+                "parameter_name": "gs_order",
+                "display_name": "Guide Star Index",
+                "description": "The index of this guide star within the list of selected guide stars. ",
+                "example": "",
+                "datatype": "integer",
+                "units": "",
+                "group": "Guide star information",
+                "fits_keyword": "GS_ORDER"
+            },
+            {
+                "parameter_name": "gsstrttm",
+                "display_name": "Guiding Start Time",
+                "description": "Observatory UTC time when guide star activity started ",
+                "example": "1999-01-01 01:01:01",
+                "datatype": "string",
+                "units": "",
+                "group": "Guide star information",
+                "fits_keyword": "GSSTRTTM"
+            },
+            {
+                "parameter_name": "gsstrttm_mjd",
+                "display_name": "Guiding Start MJD",
+                "description": "Guiding start time (gsstrtm) in MJD format",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Guide star information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "gsendtim",
+                "display_name": "Guiding End Time",
+                "description": "UTC end time of guide star acquisition activity completed",
+                "example": "1999-01-01 00:00:00",
+                "datatype": "string",
+                "units": "",
+                "group": "Guide star information",
+                "fits_keyword": "GSENDTIM"
+            },
+            {
+                "parameter_name": "gsendtim_mjd",
+                "display_name": "Guiding End MJD",
+                "description": "Guiding end time in MJD format",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Guide star information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "gdstarid",
+                "display_name": "Guide Star ID",
+                "description": "The guide star identifier is a 10 character, base 36 number identifying celestial objects included in Guide Star Catalog two. ",
+                "example": "N5R2005564",
+                "datatype": "string",
+                "units": "",
+                "group": "Guide star information",
+                "fits_keyword": "GDSTARID"
+            },
+            {
+                "parameter_name": "gs_ra",
+                "display_name": "Guide Star RA",
+                "description": "ICRS right ascension of guide star",
+                "example": "",
+                "datatype": "float",
+                "units": "degrees",
+                "group": "Guide star information",
+                "fits_keyword": "GS_RA"
+            },
+            {
+                "parameter_name": "gs_dec",
+                "display_name": "Guide Star Dec",
+                "description": "ICRS declination of guide star",
+                "example": "",
+                "datatype": "float",
+                "units": "degrees",
+                "group": "Guide star information",
+                "fits_keyword": "GS_DEC"
+            },
+            {
+                "parameter_name": "gs_ura",
+                "display_name": "Guide Star RA Err",
+                "description": "ICRS right ascension uncertainty of guide star",
+                "example": "",
+                "datatype": "float",
+                "units": "arcsec",
+                "group": "Guide star information",
+                "fits_keyword": "GS_URA"
+            },
+            {
+                "parameter_name": "gs_udec",
+                "display_name": "Guide Star Dec Err",
+                "description": "ICRS declination uncertainty of guide star",
+                "example": "",
+                "datatype": "float",
+                "units": "arcsec",
+                "group": "Guide star information",
+                "fits_keyword": "GS_UDEC"
+            },
+            {
+                "parameter_name": "gs_mag",
+                "display_name": "Guide Star Magnitude",
+                "description": "guide star magnitude in FGS detector. Defined range: -99..99",
+                "example": "",
+                "datatype": "float",
+                "units": "mag",
+                "group": "Guide star information",
+                "fits_keyword": "GS_MAG"
+            },
+            {
+                "parameter_name": "gs_umag",
+                "display_name": "Guide Star Mag Err",
+                "description": "guide star magnitude uncertainty. Defined range: -99..99",
+                "example": "",
+                "datatype": "float",
+                "units": "mag",
+                "group": "Guide star information",
+                "fits_keyword": "GS_UMAG"
+            },
+            {
+                "parameter_name": "gs_v3_pa",
+                "display_name": "Guide Star Position Angle",
+                "description": "V3 position angle of the guide star, measured at the guide star location, to be used for the science attitude. Range is -360 to +360.",
+                "example": "180.452296",
+                "datatype": "float",
+                "units": "degrees",
+                "group": "Guide star information",
+                "fits_keyword": "GS_V3_PA"
+            },
+            {
+                "parameter_name": "pcs_mode",
+                "display_name": "PCS Mode",
+                "description": "Pointing Control System mode: Fine Guide, Coarse, None, Track, Moving. For COARSE Visit is executed under fixed head star tracker control. For FINEGUIDE the fixed target visit is executed using guide stars in fine guiding mode. For TRACK the fixed target visit is to be executed using guide stars but not using fine guiding mode. This mode is intended to be used when the telescope focus is not optimal, during commissioning or special engineering tests. For MOVING the moving target visit is to be executed by tracking using guide stars. NONE indicates that the visit does not need to be pointed. It will be used for special visits, such as for loading on-board scripts or other non-standard internal activities. ",
+                "example": "FINEGUIDE",
+                "datatype": "string",
+                "units": "",
+                "group": "Guide star information",
+                "fits_keyword": "PCS_MODE"
+            },
+            {
+                "parameter_name": "visitend",
+                "display_name": "Visit End Time",
+                "description": "Observatory UTC time when the visit completed.",
+                "example": "2015-07-29 00:02:45.8540000",
+                "datatype": "string",
+                "units": "",
+                "group": "Guide star information",
+                "fits_keyword": "VISITEND"
+            },
+            {
+                "parameter_name": "visitend_mjd",
+                "display_name": "Vist End MJD",
+                "description": "Visit end time (visitend) in MJD format",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Guide star information",
+                "fits_keyword": "null"
+            }
+        ],
+        "Background information": [
+            {
+                "parameter_name": "bkglevel",
+                "display_name": "Background Level",
+                "description": "Description: Records the overall background signal level computed by the skymatch step during calibration pipeline processing.",
+                "example": "",
+                "datatype": "float",
+                "units": "",
+                "group": "Background information",
+                "fits_keyword": "BKGLEVEL"
+            },
+            {
+                "parameter_name": "bkgsub",
+                "display_name": "Is Background Subtracted",
+                "description": "Indicates whether or not the background signal level given in the BKGLEVEL keyword has been subtracted from the data.",
+                "example": "F",
+                "datatype": "boolean",
+                "units": "",
+                "group": "Background information",
+                "fits_keyword": "BKGSUB"
+            },
+            {
+                "parameter_name": "masterbg",
+                "display_name": "Master Background",
+                "description": "The name of the file containing the 1-D master background spectrum used in the master background subtraction step. Can be supplied by the user or created by the pipeline step.",
+                "example": "user_supplied_background.fits",
+                "datatype": "string",
+                "units": "",
+                "group": "Background information",
+                "fits_keyword": "MASTERBG"
+            }
+        ],
+        "Product Information": [
+            {
+                "parameter_name": "productLevel",
+                "display_name": "Product Level",
+                "description": "null",
+                "example": "null",
+                "datatype": "null",
+                "units": "null",
+                "group": "Product Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "publicReleaseDate",
+                "display_name": "Public Release Date",
+                "description": "Datetime the data is released to the public",
+                "example": "null",
+                "datatype": "string",
+                "units": "null",
+                "group": "Product Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "publicReleaseDate_mjd",
+                "display_name": "Public Release MJD",
+                "description": "public release date (publicReleaseDate) in MJD format",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Product Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "isItar",
+                "display_name": "Is ITAR",
+                "description": "null",
+                "example": "null",
+                "datatype": "null",
+                "units": "null",
+                "group": "Product Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "isRestricted",
+                "display_name": "Is Restricted",
+                "description": "null",
+                "example": "null",
+                "datatype": "null",
+                "units": "null",
+                "group": "Product Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "isStale",
+                "display_name": "Is Stale",
+                "description": "null",
+                "example": "null",
+                "datatype": "null",
+                "units": "null",
+                "group": "Product Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "fileSize",
+                "display_name": "Filesize",
+                "description": "null",
+                "example": "null",
+                "datatype": "null",
+                "units": "null",
+                "group": "Product Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "checksum",
+                "display_name": "Valid Checksum",
+                "description": "null",
+                "example": "null",
+                "datatype": "null",
+                "units": "null",
+                "group": "Product Information",
+                "fits_keyword": "null"
+            }
+        ],
+        "Internal Information": [
+            {
+                "parameter_name": "ArchiveFileID",
+                "display_name": "Archive File ID",
+                "description": "null",
+                "example": "null",
+                "datatype": "null",
+                "units": "null",
+                "group": "Internal Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "fileSetName",
+                "display_name": "FileSet Name",
+                "description": "null",
+                "example": "null",
+                "datatype": "null",
+                "units": "null",
+                "group": "Internal Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "FileSetId",
+                "display_name": "FileSet ID",
+                "description": "null",
+                "example": "null",
+                "datatype": "null",
+                "units": "null",
+                "group": "Internal Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "FileTypeID",
+                "display_name": "FileType ID",
+                "description": "null",
+                "example": "null",
+                "datatype": "null",
+                "units": "null",
+                "group": "Internal Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "ingestCompletionDate",
+                "display_name": "Ingest Completion Date",
+                "description": "End datetime when the product was ingested into CAOM.",
+                "example": "null",
+                "datatype": "string",
+                "units": "null",
+                "group": "Internal Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "ingestCompletionDate_mjd",
+                "display_name": "Ingest Completion MJD",
+                "description": "Ingest completion date (ingestCompletionDate) in MJD format.",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Internal Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "ingestStartDate",
+                "display_name": "Injest Start Date",
+                "description": "Start datetime when the product was ingested into CAOM.",
+                "example": "null",
+                "datatype": "string",
+                "units": "null",
+                "group": "Internal Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "ingestStartDate_mjd",
+                "display_name": "Ingest Start MJD",
+                "description": "Ingest start date (ingestStartDate) in MJD format.",
+                "example": "58990.45587642361",
+                "datatype": "float",
+                "units": "MJD",
+                "group": "Internal Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "dva_ra",
+                "display_name": "Velocity Abberated RA(?)",
+                "description": "Unknown RA Parameter.  Possibly VA_RA keyword.",
+                "example": "null",
+                "datatype": "float",
+                "units": "degrees",
+                "group": "Internal Information",
+                "fits_keyword": "null"
+            },
+            {
+                "parameter_name": "dva_dec",
+                "display_name": "Velocity Abberated Dec(?)",
+                "description": "Unknown Dec Parameter. Possibly VA_DEC keyword.",
+                "example": "null",
+                "datatype": "float",
+                "units": "degrees",
+                "group": "Internal Information",
+                "fits_keyword": "null"
+            }
+        ]
+    }
+}

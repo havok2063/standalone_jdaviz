@@ -1,0 +1,259 @@
+body * {
+    font-family: Overpass, sans-serif;
+}
+.visualize-btn {
+    background-color: #c75109;
+    border-color: #c75109;
+    color: #fff;
+    padding: 0.2em 0.4em;
+    margin: auto;
+}
+.visualize-btn:hover {
+    background-color: #03475c;
+    border-color: #03475c;
+    color: black;
+}
+span.tooltip {
+    display: none;
+}
+.visualize-btn:hover + span.tooltip {
+    display: inline-flex;
+    position: absolute;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    margin-top: 0.5rem;
+    margin-left: -0.5rem;
+    font-size: medium;
+    background-color: #00617e;
+    color: white;
+}
+.results-message {
+    color: #474747;
+    background-color: #e1dfdf;
+    font-size: xx-large;
+    text-align: center;
+}
+.search-bar-text {
+    border-color: #c75109;
+}
+.sec-title {
+    margin-bottom: 1rem;
+    color: white;
+    font-size: x-large;
+    font-family : 'Oswald';
+}
+.uri-text {
+    font-size: large;
+}
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+.description-text a {
+    color: #ff9d42 !important;
+}
+.description-text {
+    font-size: 0.875rem;
+}
+.search-button {
+    background-color: #c75109;
+    border-color: #c75109;
+    font-size: medium;
+    border-radius: 1px 4px 4px 0;
+    width: 100%;
+    height: 3.5rem !important;
+    float: right;
+}
+.goto-search-button {
+    background-color: #c75109;
+    border-color: #c75109;
+    font-size: large;
+    width: 12rem;
+    height: 3rem !important;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.v-input__append-inner {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 10%;
+    height: 100%;
+}
+.v-input__slot {
+    padding-right: 0 !important;
+}
+.theme--light.v-btn {
+    color: white;
+}
+.text-xs-center {
+    font-size: large;
+}
+.filter-text {
+    width: 400px;
+}
+.icon-generic {
+    background: url("/viz/static/images/jdaviz_generic.svg");
+    height: 60px;
+    width: 60px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.icon-cube {
+    background: url("/viz/static/images/jdaviz_cube.svg");
+    margin: 15px -15px -15px 15px;
+}
+.icon-mos {
+    background: url("/viz/static/images/jdaviz_mos.svg");
+}
+.icon-spec {
+    background: url("/viz/static/images/jdaviz_spec.svg");
+}
+.icon-specviz2d {
+    background: url("/viz/static/images/jdaviz_specviz2d.svg");
+}
+.icon-misc {
+    background: url("/viz/static/images/jdaviz_misc.svg");
+}
+
+.container {
+    max-width: 1900px;
+}
+
+/* CSS imported from missions-mast project */
+.results-data-table .v-data-table-header th {
+    white-space: nowrap;
+    font-size: 1.0rem;
+}
+
+/* Because the table is scrollable horizontally when there are a large number of columns,
+      we want to force the "loading" and "no results" messages to the center of the view no matter
+      where the table is currently scrolled horizontally. */
+.results-data-table .v-data-table__empty-wrapper {
+    position: absolute !important;
+    left: 50% !important;
+    font-weight: bolder !important;
+}
+
+.table-header-prepend .v-btn:hover,
+.table-footer-prepend .v-btn:hover {
+    background: #a75000 !important;
+    opacity: 1 !important;
+}
+
+.results-data-table tbody tr:nth-of-type(even) {
+    background-color: #f1f2f7;
+}
+
+.results-data-table .v-data-footer,
+.results-data-table thead th,
+.results-data-table .v-select__selection--comma,
+.results-data-table .v-input__slot,
+.results-data-table .v-input__slot:before,
+.table-title {
+    background-color: #03475c !important;
+    color: white !important;
+    border-color: white !important;
+}
+
+.results-data-table .v-data-footer .v-icon,
+.results-data-table thead th .v-icon,
+.results-data-table .v-data-table-header__sort-badge {
+    color: white !important;
+    border-color: white !important;
+}
+
+.results-data-table tbody tr.v-data-table__selected {
+    background-color: #c6f0fd !important;
+    border: 1px solid #76d5d5 !important;
+}
+
+.results-data-table .v-data-footer {
+    margin-right: 0 !important;
+    font-size: 1rem;
+}
+
+.theme--light.v-data-table .v-data-footer {
+    border-top: none !important;
+}
+
+.background-image {
+    height: 100%;
+    width: 100%;
+    background-image: url("/viz/static/images/background.jpg");
+    z-index: -1;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.theme--dark.v-text-field--outlined fieldset,
+.theme--dark.v-label:not(.v-label--is-disabled) {
+    /* Set label colors per the UI mockups */
+    background-color: #03475c !important;
+}
+
+.v-btn,
+.v-input,
+.v-data-table,
+.v-menu__content,
+.v-tooltip__content,
+.v-sheet.v-card,
+.v-chip.v-size--default,
+.v-chip.v-size--small,
+.v-chip.v-size--large {
+    /* Use square inputs with no shadows */
+    border-radius: 0px !important;
+    box-shadow: 0 0 0 0 !important;
+}
+.theme--dark.v-text-field--outlined:not(.v-input--has-state):not(.v-input--is-focused) fieldset {
+    /* Change input borders to white if they are not in an error
+    state and are not in focus by the user */
+    color: white !important;
+}
+
+.v-input.search-bar-text.v-input--hide-details.v-input--is-label-active.v-input--is-dirty.theme--dark.v-text-field.v-text-field--is-booted.v-text-field--enclosed.v-text-field--outlined {
+    background: #03475c !important;
+}
+
+/* Remove input background color for Chrome autocomplete */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #03475c inset !important;
+}
+input:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+}
+.v-data-table tbody tr:nth-of-type(even) {
+    background-color: #f1f2f7;
+    color: black;
+}
+.v-data-table tbody tr:nth-of-type(odd) {
+    background-color: white;
+    color: black;
+}
+
+/* position search filter text to the left */
+.v-input.filter-text {
+    float: left !important;
+}
+
+.remove-pad-marg-bottom {
+    padding-bottom: 0px;
+    margin-bottom: 0px !important;
+}
+
+.remove-pad-marg-top {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.pad-bottom {
+    padding-bottom: 24px;
+}

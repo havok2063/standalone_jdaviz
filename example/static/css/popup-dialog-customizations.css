@@ -1,0 +1,30 @@
+.swal-overlay--show-modal .swal-modal {
+    -webkit-animation: none;
+    animation: none;
+}
+.swal-modal {
+    font-family: "Oswald";
+    width: 380px;
+    border-radius: 0;
+}
+.swal-text {
+    color: darkslategray;
+}
+.swal-button {
+    background-color: #03475c;
+    border-radius: 0;
+    width: 338px;
+}
+.swal-button:not([disabled]):hover {
+    background-color: #c75109;
+}
+
+button.swal-button.swal-button--cancel.custom-cancel {
+    position: fixed;
+    top: 0px;
+    left: 332px;
+    width: 0.6rem;
+    color: darkslategray;
+    font-size: large;
+    background-color: white !important;
+}

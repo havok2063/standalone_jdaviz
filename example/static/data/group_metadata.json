@@ -1,0 +1,50 @@
+{
+    "basic_info" : {
+        "description": "Common parameters describing the target and/or observation; a subset taken from the Instrument Keyword and Observation Parameter sections.",
+        "groups": {
+            "Target Info": {"description": "Parameters regarding the target of observation"},
+            "Instrument Info": {"description": "Parameters describing the type of instrument and observing mode"},
+            "Observation Info": {"description": "Parameters regarding the date, type, and state of an observation"}
+            }
+    },
+    "observation_parameters": {
+        "description": "Information about the JWST Observation, as seen in a <a href='https://outerspace.stsci.edu/display/MASTDOCS/Field+Guide+to+the+Portal' target='_blank'>MAST Portal Search</a>. See <a href='https://outerspace.stsci.edu/display/MASTDOCS/Search+Results+Grid#SearchResultsGrid-TableColumnFieldsandDescriptions' target='_blank'>Column Descriptions</a> for more details.",
+        "groups": {
+            "Proposal Information": {"description": "Parameters describing the observing proposal"},
+            "Observation Information": {"description": "Parameters regarding the date, type, and state of an observation"},
+            "Target Information": {"description": "Parameters regarding the target of observation"},
+            "Product Information": {"description": "Parameters describing the type of data product produced during the observation"},
+            "Instrument Information": {"description": "Parameters describing the type of instrument and observing mode"},
+            "Access Information": {"description": "Parameters related to data access for the given data product"},
+            "Internal Information": {"description": "Parameters internal to MAST"}
+        }
+    },
+    "instrument_keywords": {
+        "description": "Information from the FITS headers of the science data products. See <a href='https://outerspace.stsci.edu/display/MASTDOCS/Keyword+Metadata' target='_blank'>Keyword Metadata</a> for more details.",
+        "groups": {
+            "Standard parameters": {"description": "Standard FITS header parameters"},
+            "Basic parameters": {"description": "Basic parameters of file creation and data processing"},
+            "IFU cube parameters": {"description": "Parameters specific to 3D integral field unit (IFU) observations"},
+            "Programmatic information": {"description": "Parameters regarding the type of observing proposal"},
+            "Observation identifiers": {"description": "Parameters regarding the date, type, and state of an observation"},
+            "Visit information": {"description": "Parameters regarding an individual telescope visit of an observation"},
+            "Target information": {"description": "Parameters regarding the target of observation"},
+            "Instrument configuration information": {"description": "Parameters describing the type of instrument and its configuration for an observation"},
+            "Exposure parameters": {"description": "Parameters related to number, type, and length of exposures during a given observation"},
+            "Association parameters": {"description": "Parameters describing files containing information on associated observations"},
+            "Subarray parameters": {"description": "Parameters relevant to any subarray instrument configuration"},
+            "Dither information": {"description": "Parameters describing any instrument dithering during an observation"},
+            "NIRSPEC WFS&C engineering keywords information": {"description": "NIRSPEC engineering keywords"},
+            "Focus Adjust Mechanism parameters": {"description": "Parameters decribing the NIRCAM focus adjustment"},
+            "Aperture information": {"description": "Parameters relevant to the science aperture used"},
+            "Time information": {"description": "Parameters related to the time of observation"},
+            "Reference file information": {"description": "Parameters for calibration reference files"},
+            "Resampling parameter information": {"description": "Parameters related to any product resampling that occurred during pipeline processing"},
+            "WCS parameters": {"description": "Parameters related to the World Coordinate System (WCS) of the observation"},
+            "Guide star information": {"description": "Parameters relevant to guiding and guide star observations"},
+            "Background information": {"description": "Parameters relevant to any background subtraction during pipeline processing"},
+            "Product Information": {"description": "Parameters describing the type of data product and public release date"},
+            "Internal Information": {"description": "Parameters internal to MAST"}
+        }
+    }
+}

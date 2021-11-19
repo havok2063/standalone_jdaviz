@@ -1,0 +1,81 @@
+.jdaviz-logo {
+    color: white !important;
+    font-size: xx-large;
+    font-weight: 900;
+    text-decoration: none;
+    padding-left: 3rem;
+    float: left;
+}
+
+.mast-logo {
+    height: 38px;
+    width: 38px;
+    margin-bottom: -8px;
+    margin-right: 2px;
+}
+
+.top-bar-links-container {
+    margin-right: 3rem;
+    margin-left: auto;
+}
+
+.top-bar-links {
+    color: white !important;
+    margin: 0 1rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.v-application a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.vertical-line {
+    border-left: thin solid white;
+}
+
+.v-list {
+    border-radius: 0 !important;
+}
+.help-menu {
+    border: 1px solid #fff !important;
+    /* border-color: white !important;
+    border-width: thin; */
+    background-color: #03475c !important;
+}
+.v-menu__content {
+    border-radius: 0px !important;
+}
+div.v-list-item:hover {
+    background-color: #c75109;
+}
+.header-name-generic {
+    height: 30px;
+    width: 110px;
+    display: block;
+    float: left;
+    margin-left: 1em;
+    margin-top: 10px
+}
+.icon-cube-name {
+    background: url("/viz/static/images/cubeviz.svg");
+}
+.icon-mos-name {
+    background: url("/viz/static/images/mosviz.svg");
+}
+.icon-spec-name {
+    background: url("/viz/static/images/specviz.svg");
+}
+.icon-spec2-name {
+    background: url("/viz/static/images/specviz2d.svg");
+    width: 120px;
+}
+.icon-github {
+    background: url('/viz/static/images/github.svg');
+    height: 22px;
+    width: 22px;
+    float: left;
+    margin-right: 2px;
+}

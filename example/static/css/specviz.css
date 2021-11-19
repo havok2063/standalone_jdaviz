@@ -50,9 +50,17 @@ table {
     padding-bottom: 4px;
     padding-left: 9px;
     font-weight: bold;
+    text-transform: capitalize;
 }
 .target {
-    color: #006281;
+    color: white;
+}
+#the-panel {
+    background-color: #1E1E1E;
+    border: solid white 1px;
+}
+.v-card {
+
 }
 .v-card__title + .v-card__subtitle {
     margin-top: 0;
@@ -89,12 +97,15 @@ td[alt]:hover:after {
 }
 .v-expansion-panel-header {
     padding: 0 0;
-    background-color: #bbbbbb;
-    color: #03475c;
+    background-color: #013B4D;
+    color: white;
     border-right: 2rem;
 }
+.v-expansion-panels {
+    border-radius: 0 !important;
+}
 .v-expansion-panel-header--active {
-    background-color: #03475c;
+    background-color: #013B4D;
     color: white;
     border-radius: 0 !important;
 }
@@ -103,21 +114,19 @@ td[alt]:hover:after {
     background-color: #d7d7d7;
 }
 
-.v-expansion-panel-header .mdi-menu-down::before {
-    color: #03475c;
+.mdi.mdi-menu-down {
+    font-size: 3.2rem;
 }
-.v-expansion-panel-header--active .mdi-menu-down::before {
+.v-expansion-panel-header .mdi-menu-down::before {
     color: white;
 }
 
 .v-expansion-panel--active > .v-expansion-panel-header {
-    min-height: 2rem;
+    min-height: 3rem;
 }
 
 .v-expansion-panel-content {
     background-color: #d7d7d7;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
 }
 .voila-connection {
     margin-top: 2rem;
@@ -126,8 +135,16 @@ td[alt]:hover:after {
     font-size: large;
 }
 .notebook-container {
-    margin-left: auto;
-    margin-right: auto;
+    height: calc(100vh - 128px); /* for the height of notebook container column */
+}
+
+.jdaviz {
+    height: 100vh !important;
+}
+
+.jdaviz > .v-application--wrap {
+    min-height: calc(100vh - 128px); /* for the height of jdaviz app itself */
+    max-height: calc(100vh - 128px);
 }
 
 .search-bar-text input {
@@ -141,6 +158,12 @@ td[alt]:hover:after {
 .search-bar {
     background-color: #03475c;
 }
+
+#search-text::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
 .text-white input {
     color: white !important;
 }
@@ -192,23 +215,46 @@ main.v-content.main-container {
 main.v-content.search-bar-container {
     max-height: 128px;
 }
-
-#panel-collapse-bar {
-    background-image: url(../images/expand-teal.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: lightgrey;
-    transform: rotate(180deg);
-    cursor: pointer;
-    max-width: 55px;
-    flex: 10%;
+/* set size of first column in left panel */
+div[classname="observation-parameters"] td:first-child {
+    min-width: 10rem;
 }
-#panel-expand-bar {
-    background-image: url(../images/expand-teal.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: lightgrey;
-    cursor: pointer;
-    width: 60px;
-    height: calc(100vh - 128px);
+div[classname="instrument-keywords"] td:nth-child(2) {
+    max-width: 10rem;
+    word-wrap: break-word;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.subsection-title {
+    font-weight: bold !important;
+    font-size: 1rem;
+}
+.subsection-header {
+    min-height: 2rem;
+    background-color: #007BA1;
+}
+.subsection-header.v-expansion-panel-header--active {
+    background-color: #007BA1;
+    min-height: 2rem;
+}
+.panel-scroll-containment {
+    overflow: auto;
+    max-height: calc(100vh - 170px);
+}
+.embed-container {
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.toggle-info-panel {
+    background-color: #1E1E1E !important;
+    color: white !important;
+    border: solid white 1px;
+    border-radius: 0;
+    height: 56px !important;
+    width: 56px !important;
+}
+.v-expansion-panel-header__icon .v-icon {
+    color: white important;
 }

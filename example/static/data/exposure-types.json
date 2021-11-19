@@ -1,0 +1,66 @@
+{
+    "MIR_MRS": {
+        "instrument": "MIRI",
+        "resolution": "~1550-3250",
+        "wavelength_coverage": "4.9-28.8",
+        "pixel_scale": "0.196-0.273",
+        "field_of_view": "3.9”-7.7”",
+        "link_text": "See <a target='_blank' href='https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument#JWSTMidInfraredInstrument-MIRIObsObservationalcapabilities'>MIRI Observational Capabilities</a> for details."
+    },
+    "MIR_LRS-FIXEDSLIT": {
+        "instrument": "MIRI",
+        "resolution": "~100 @ 7.5 um",
+        "wavelength_coverage": "5-12",
+        "pixel_scale": "0.11",
+        "field_of_view": "0.51” x 4.7”",
+        "link_text": "See <a target='_blank' href='https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument#JWSTMidInfraredInstrument-MIRIObsObservationalcapabilities'>MIRI Observational Capabilities</a> for details."
+    },
+    "NRS_IFU": {
+        "instrument": "NIRSpec",
+        "resolution": "~100 (Prism), ~1000 (Medium-Resolution Gratings), ~2000 (High-Resolution Gratings)",
+        "wavelength_coverage": "Varies by grating",
+        "pixel_scale": "0.1",
+        "field_of_view": "3.0” x 3.0”",
+        "link_text": "See <a target='_blank' href='https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph#JWSTNearInfraredSpectrograph-Observationalcapabilities'>NIRSpec Observational Capabilities</a> for details."
+    },
+    "NRS_FIXEDSLIT": {
+        "instrument": "NIRSpec",
+        "resolution": "~100 (Prism), ~1000 (Medium-Resolution Gratings), ~2000 (High-Resolution Gratings)",
+        "wavelength_coverage": "Varies by grating",
+        "pixel_scale": "0.1",
+        "field_of_view": "",
+        "link_text": "See <a target='_blank' href='https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph#JWSTNearInfraredSpectrograph-Observationalcapabilities'>NIRSpec Observational Capabilities</a> for details."
+    },
+    "NRS_MSASPEC": {
+        "instrument": "NIRSpec",
+        "resolution": "~100 (Prism), ~1000 (Medium-Resolution Gratings), ~2000 (High-Resolution Gratings)",
+        "wavelength_coverage": "Varies by grating",
+        "pixel_scale": "0.1",
+        "field_of_view": "0.20” x 0.46”",
+        "link_text": "See <a target='_blank' href='https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph#JWSTNearInfraredSpectrograph-Observationalcapabilities'> NIRSpec Observational Capabilities</a> for details."
+    },
+    "NIS_WFSS": {
+        "instrument": "NIRISS",
+        "resolution": "~150 @ 1.4 um",
+        "wavelength_coverage": "0.8-22",
+        "pixel_scale": "0.065",
+        "field_of_view": "133” x 133”",
+        "link_text": "See <a target='_blank' href='https://jwst-docs.stsci.edu/jwst-near-infrared-imager-and-slitless-spectrograph#JWSTNearInfraredImagerandSlitlessSpectrograph-Observationalcapabilities'>NIRISS Observational Capabilities</a> for details."
+    },
+    "NIS_SOSS": {
+        "instrument": "NIRISS",
+        "resolution": "~700 @ 1.4 um",
+        "wavelength_coverage": "0.6-2.8",
+        "pixel_scale": "0.065",
+        "field_of_view": "N/A",
+        "link_text": "See <a target='_blank' href='https://jwst-docs.stsci.edu/jwst-near-infrared-imager-and-slitless-spectrograph#JWSTNearInfraredImagerandSlitlessSpectrograph-Observationalcapabilities'>NIRISS Observational Capabilities</a> for details."
+    },
+    "NRC_WFSS": {
+        "instrument": "NIRCam",
+        "resolution": "~1600 @ 4 um",
+        "wavelength_coverage": "2.4-5.0",
+        "pixel_scale": "0.063",
+        "field_of_view": "2 x 129” x 129”",
+        "link_text": "See <a target='_blank' href='https://jwst-docs.stsci.edu/jwst-near-infrared-camera#JWSTNearInfraredCamera-Observationalcapabilities'>NIRCam Observational Capabilities</a> for details."
+    }
+}

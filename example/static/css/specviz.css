@@ -258,3 +258,7 @@ tr:nth-child(even) {
 .v-expansion-panel-header__icon .v-icon {
     color: white important;
 }
+
+.jdaviz {
+  height: 100vh !important;
+}

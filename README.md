@@ -2,6 +2,8 @@
 
 This repository is an example standalone web embed of [Jdaviz](https://github.com/spacetelescope/jdaviz) using the JS script version of [Voila Embed](https://github.com/mariobuikhuizen/voila-embed).  It is primarily designed to explore CSS conflicts during the embed process.  See https://github.com/spacetelescope/jdaviz/issues/463 for the initial discussion.
 
+
+
 ## Example Pages
 This repo contains the following example pages
 - index_simple.html - a simple embed of Jdaviz in a page predominantly controlled by Vue+Vuetify
@@ -16,6 +18,15 @@ To set up the front-end, in a terminal window, do the following:
 - Navigate to `http://localhost:5000` or wherever `npx` locally deployed the front-end.
 - The default `index.html` page is equivalent to `index_jwst.html`
 - Alternatively navigate to one of the other index files, e.g. `http://localhost:5000/index_simple`
+
+## Run Vue Component Example
+
+The Vue component example is in the `frontend` directory.  To run the 
+
+- cd into `frontend` subdirectory
+- run `yarn serve` to spin up a development server for front-end testing
+- or run `yarn build` for production build testing
+- In a separate terminal run the Voila Server 
 
 ## Run Voila Server
 To set up the back-end Voila server, in a new terminal window, do the following:

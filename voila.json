@@ -1,0 +1,32 @@
+{
+    "Voila": {
+        "open_browser": false,
+        "tornado_settings": {
+		"allow_origin": "http://localhost:8081",
+		"allow_credentials": true
+            }
+    },
+    "VoilaConfiguration": {
+        "template": "embed",
+        "enable_nbextensions": true,
+	"http_header_envs": ["Cookie", "User-Agent"],
+	"preheat_kernel": true,
+	"default_pool_size": 3
+    },
+    "MappingKernelManager": {
+        "cull_interval": 60,
+        "cull_idle_timeout": 120
+    },
+    "VoilaKernelManager": {
+	"kernel_pools_config": {
+	  	"jdaviz_test.ipynb": {
+			"pool_size": 3,
+			"kernel_env_variables": {
+				"VOILA_APP_PORT": "8000",
+				"VOILA_APP_PROTOCOL": "wss"
+			}
+	  	}
+	}
+    }
+}
+

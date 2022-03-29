@@ -13,7 +13,7 @@
     "material-design-icons-iconfont": "^5.0.1",
     "sass-loader": "^10",
     "typeface-roboto": "0.0.54",
-    "voila-embed-vuetify": "^0.0.3",
+    "voila-embed-vuetify": "^0.0.4",
     "vue": "^2.6.11",
     "vuetify": "^2.6.3",
     "webpack": "^5"

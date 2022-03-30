@@ -26,7 +26,7 @@ To set up the back-end Voila server, in a new terminal window, do the following:
 
 - Navigate to this top-level directory, i.e. the directory where the `jdaviz_test.ipynb` resides
 - install the [Voila Embed](https://github.com/mariobuikhuizen/voila-embed) package
-- start the voila server with `voila --no-browser --template=embed --enable_nbextensions=True --Voila.tornado_settings="{'allow_origin': 'http://localhost:5000'}" --port=8000`.  This will start Voila running locally on port 8000.
+- start the voila server with `voila` to use the configuration in `voila.json`.  Or alternatively run `voila --no-browser --template=embed --enable_nbextensions=True --Voila.tornado_settings="{'allow_origin': 'http://localhost:5000'}" --port=8000`.  This will start Voila running locally on port 8000.
 - Reload the front-end web page
 
 ## Vue Component Example
@@ -48,5 +48,5 @@ This should start a serve running at `http://localhost:8081`
 To set up the back-end Voila server, in a new terminal window, do the following:
 
 - Navigate to this top-level directory, i.e. the directory where the `jdaviz_test.ipynb` resides
-- start the voila server with `voila --no-browser --template=embed --enable_nbextensions=True --Voila.tornado_settings="{'allow_origin': 'http://localhost:8081', 'allow_credentials':True}" --port=8000`.  This will start Voila running locally on port 8000.
+- start the voila server with `voila` to use the configuration in `voila.json`.  Or alternatively run `voila --no-browser --template=embed --enable_nbextensions=True --Voila.tornado_settings="{'allow_origin': 'http://localhost:8081', 'allow_credentials':True}" --port=8000`.  This will start Voila running locally on port 8000.
 - Reload the front-end web page

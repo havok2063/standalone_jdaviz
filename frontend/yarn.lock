@@ -8525,10 +8525,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.npmjs.org/vm-browserify/-/vm-browserify-1.1.2.tgz"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-voila-embed-vuetify@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/voila-embed-vuetify/-/voila-embed-vuetify-0.0.4.tgz#892f3f30c2705a33b6d4935b558fd806b5b788d3"
-  integrity sha512-hg4Pb0OylBBtYpWMDB8ee/vnqY/BIReT5GpmehGLJ7qsiy3qhN418AN2MXAqzkYXvnM+5Ur/3wP4EFV6sXwWdg==
+voila-embed-vuetify@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/voila-embed-vuetify/-/voila-embed-vuetify-0.0.5.tgz#f09d422904d36157854cce53b6eacd7209a976c3"
+  integrity sha512-vRvv23Z74rOsASOo2ctzvDJnkt830yMmhZMPNZCm3kypFPyn4yNzNrc4gfo2dcIIpOgwRkTycEawyPkd0ALp1g==
   dependencies:
     "@mariobuikhuizen/vue-compiler-addon" "^2.6.10-alpha.1"
 

@@ -4,7 +4,8 @@
         "tornado_settings": {
 		"allow_origin": "http://localhost:8081",
 		"allow_credentials": true
-            }
+            },
+	"port": 8000
     },
     "VoilaConfiguration": {
         "template": "embed",
